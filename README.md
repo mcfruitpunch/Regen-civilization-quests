@@ -28,7 +28,7 @@ Use `python scripts/screen_quest.py` to validate checked-in drafts and prevent n
 
 ## Test the pre-community lab (v0.4)
 
-Open [`web/lab.html`](web/lab.html) to replay nine fully fictional scenarios without changing personal progress. Review ten curated, optional learning pathways in [`data/pathways.json`](data/pathways.json). The lab reports what sample routes would be suggested given time, remote/community preferences, unavailable permissions, and interruptions; **it does not prove access, impact, consent, or outcomes for real people**. The expanded sample library contains 30 illustrative quests across six domains.
+Open [`web/lab.html`](web/lab.html) to replay nine fully fictional scenarios without changing personal progress. Review ten curated, optional learning pathways in [`data/pathways.json`](data/pathways.json). The lab reports what sample routes would be suggested given time, remote/community preferences, unavailable permissions, and interruptions; **it does not prove access, impact, consent, or outcomes for real people**. The expanded sample library contains 30 illustrative quests across six domains. The initial Atlas integration contract is intentionally unlinked: no private source data or unsupported Atlas relationships were copied into this public repository.
 
 See [`docs/13-precommunity-lab-v0.4.md`](docs/13-precommunity-lab-v0.4.md) for what can be built internally, what requires eventual community and independent review, and the gates that must remain closed before public submissions.
 
@@ -48,6 +48,7 @@ See [`docs/13-precommunity-lab-v0.4.md`](docs/13-precommunity-lab-v0.4.md) for w
 | [`docs/11-license-governance-options.md`](docs/11-license-governance-options.md) | Unapproved licensing choices and anti-capture governance proposal |
 | [`docs/12-quest-creation-and-review-v0.3.md`](docs/12-quest-creation-and-review-v0.3.md) | Quest creator, preflight screening, human review proposal, and launch gates |
 | [`docs/13-precommunity-lab-v0.4.md`](docs/13-precommunity-lab-v0.4.md) | Pre-community curriculum, simulations, maturity gates, and build roadmap |
+| [`docs/14-atlas-integration-contract.md`](docs/14-atlas-integration-contract.md) | Source-permission and versioning boundary between REGEN and the Atlas |
 
 Quest examples are in [`data/quests.json`](data/quests.json), contract in [`schema/quest.schema.json`](schema/quest.schema.json), and explainable progression logic in [`web/quest-engine.js`](web/quest-engine.js). Recommendations do not certify a person's abilities or the impact of their work. 
 
