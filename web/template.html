@@ -88,7 +88,7 @@
 <script>
 /* Embedded dataset is generated from data/quests.json: run python tests/build_prototype.py */
 const QUESTPACK = __QUEST_DATA__;
-const QUESTS = QUESTPACK.quests;
+const QUESTS = QUESTPACK.quests.filter(q=>q.publication_status==="illustrative_only"); // Never surface unreviewed draft entries in this prototype.
 const ENGINE = window.REGENEngine;
 ENGINE.validate(QUESTS);
 const SKILLS = [
