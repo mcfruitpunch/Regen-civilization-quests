@@ -1,6 +1,6 @@
 # REGEN — Civilization Quest System
 
-**Version:** 0.4 pre-community lab branch · **Status:** concept + offline interactive prototype · **Date:** 2026-10-09
+**Version:** 0.5 local progress vault branch · **Status:** concept + offline interactive prototype · **Date:** 2026-10-09
 
 > Turn the work of building regenerative communities into an approachable, cooperative, real-world quest system.
 
@@ -32,6 +32,10 @@ Open [`web/lab.html`](web/lab.html) to replay nine fully fictional scenarios wit
 
 See [`docs/13-precommunity-lab-v0.4.md`](docs/13-precommunity-lab-v0.4.md) for what can be built internally, what requires eventual community and independent review, and the gates that must remain closed before public submissions.
 
+## Own your local progress (v0.5)
+
+The interactive prototype now includes **Progress vault**: a private, offline space to download a strictly self-reported JSON backup, preview older v1 or current v2 backups, choose **Combine** or **Replace** explicitly, and erase REGEN's local demo progress key. All imports are inspected before application, unknown quest IDs are omitted, unsupported evidence claims are rejected, and deletion cannot reach backups or other devices. There are no accounts or servers. [Read the progress ownership guide](docs/15-progress-ownership-v0.5.md).
+
 ## Read the foundation
 
 | Document | Purpose |
@@ -49,10 +53,11 @@ See [`docs/13-precommunity-lab-v0.4.md`](docs/13-precommunity-lab-v0.4.md) for w
 | [`docs/12-quest-creation-and-review-v0.3.md`](docs/12-quest-creation-and-review-v0.3.md) | Quest creator, preflight screening, human review proposal, and launch gates |
 | [`docs/13-precommunity-lab-v0.4.md`](docs/13-precommunity-lab-v0.4.md) | Pre-community curriculum, simulations, maturity gates, and build roadmap |
 | [`docs/14-atlas-integration-contract.md`](docs/14-atlas-integration-contract.md) | Source-permission and versioning boundary between REGEN and the Atlas |
+| [`docs/15-progress-ownership-v0.5.md`](docs/15-progress-ownership-v0.5.md) | Local backup, restore preview, ownership and deletion boundaries |
 
 Quest examples are in [`data/quests.json`](data/quests.json), contract in [`schema/quest.schema.json`](schema/quest.schema.json), and explainable progression logic in [`web/quest-engine.js`](web/quest-engine.js). Recommendations do not certify a person's abilities or the impact of their work. 
 
-## Not in scope at v0.4
+## Not in scope at v0.5
 
 - No social network, public profiles, global leaderboard, or reputational ranking.
 - No collection of participant location or identity and no uploading evidence.
@@ -66,7 +71,7 @@ Quest examples are in [`data/quests.json`](data/quests.json), contract in [`sche
 1. Run a small, opt-in pilot with a community group and pick **one** testable outcome (e.g. food waste prevented in a consenting venue).
 2. Co-design the quest safety and verification process with those affected.
 3. Decide the software/content license and adopt contribution, safety, and governance policies before public release.
-4. Review the stacked v0.2/v0.3/v0.4 pull requests, hosted CI, and architecture. Real-device accessibility and independent review remain necessary.
+4. Review the stacked v0.2/v0.3/v0.4/v0.5 pull requests, hosted CI, and architecture. Real-device accessibility and independent review remain necessary.
 5. Later connect Atlas nodes to quest pathways through a versioned, human-reviewed interface.
 
 This is an **early design**, not a validated social intervention. Preserve dignity and agency; measure benefits and unintended harms, not just participation.
