@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="REGEN v0.6 fictional evidence explorer. No real observations, uploads, or verified social or ecological outcomes.">
+<title>REGEN / Evidence & Uncertainty Lab</title>
+<style>
+:root{color-scheme:dark;--bg:#0a1711;--panel:#12271c;--panel2:#1a3929;--border:#335443;--text:#eef9ef;--soft:#b8d4bd;--mint:#b9ee9d;--warm:#f8d4a2;--danger:#f2b2ae}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 83% 0,#245138,var(--bg) 57%);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}main{width:min(1100px,calc(100% - 28px));margin:30px auto 90px}h1{font-size:clamp(2.1rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.035em;margin:14px 0}h2{font-size:1.6rem;letter-spacing:-.02em}h3{margin:0 0 8px;font-size:1.15rem}a{color:var(--mint)}p,li{color:var(--soft)}.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--mint)}.notice{border:1px solid #96764b;border-left:5px solid var(--warm);background:#36291e;border-radius:12px;padding:20px;margin:20px 0}.notice strong{color:var(--text)}.panel{padding:22px;border-radius:16px;background:var(--panel);border:1px solid var(--border);margin:16px 0}.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:21px 0}.stat{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:16px}.stat strong{display:block;font-size:1.8rem}.stat small{font-size:.83rem;color:var(--soft)}.filtergrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}label{display:block;font-weight:650;margin-bottom:8px}input,select,button{font:inherit}input,select{padding:11px;width:100%;color:var(--text);background:#081b11;border:1px solid #617e6a;border-radius:9px}button{padding:11px 17px;background:var(--mint);color:#102215;border:none;border-radius:10px;cursor:pointer;font-weight:800}button.secondary{background:transparent;border:1px solid #61846e;color:var(--text)}:is(button,select,input,a):focus-visible{outline:3px solid var(--warm);outline-offset:3px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}.claim{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:20px;display:flex;flex-direction:column;gap:9px}.claim p{margin:0}.tags{display:flex;flex-wrap:wrap;gap:8px}.tag{border:1px solid #66846c;border-radius:999px;padding:3px 10px;font-size:.78rem;color:var(--soft)}.tag.withdrawn{border-color:#c58377;color:var(--danger)}.claim button{margin-top:auto}.small{font-size:.84rem}.detailrow{border-bottom:1px solid var(--border);padding:10px 0;overflow-wrap:anywhere}.detailrow strong{display:block;font-size:.8rem;color:var(--mint)}.detailrow p{margin:4px 0}.plainlist{padding-left:21px}.plainlist li{overflow-wrap:anywhere;margin:6px 0}.metric{background:var(--panel2);border-left:4px solid var(--warm);padding:14px;border-radius:8px}.footer{margin-top:38px;border-top:1px solid var(--border);padding-top:20px}.links{display:flex;gap:20px;flex-wrap:wrap}@media(max-width:750px){.summary{grid-template-columns:repeat(2,1fr)}.filtergrid{grid-template-columns:1fr}.panel{padding:16px}}@media(max-width:420px){.summary{grid-template-columns:1fr 1fr}.stat strong{font-size:1.4rem}}
+</style></head><body><main>
+<div class="links"><a href="index.html">← Quest prototype</a><a href="lab.html">Simulation Lab</a><a href="../docs/16-evidence-provenance-v0.6.md">Evidence framework</a></div>
+<div class="eyebrow" style="margin-top:28px">Evidence & Uncertainty Lab · v0.6</div>
+<h1>What happened?<br>What can we actually claim?</h1>
+<p>Explore distinctions between activities, outputs, outcomes, unintended harms and untested assumptions. Follow each claim back to its source and any correction—without mistaking a computer-generated comparison for proof.</p>
+<div class="notice"><strong>Every record on this page is fictional.</strong> All sources and numbers were invented to test REGEN's reasoning and user experience. There are no real participants, scientific studies, external evaluations, or verified impacts here. Passing validation does not establish truth, consent or causation.</div>
+<div class="summary" id="stats" aria-label="Synthetic evidence statistics"></div>
+<section class="panel"><h2>Explore the synthetic evidence ledger</h2>
+<div class="filtergrid"><div><label for="domain">Quest area</label><select id="domain"><option value="all">All areas</option></select></div>
+<div><label for="kind">Record kind</label><select id="kind"><option value="all">All claim kinds</option></select></div>
+<div><label for="query">Search claims and limitations</label><input id="query" type="search" placeholder="Try: causal, consent, waste"></div></div>
+<p id="matches" role="status" aria-live="polite">Showing fictional claims.</p></section>
+<section class="grid" id="claims" aria-label="Fictional claim cards"></section>
+<section class="panel" id="detail" aria-labelledby="detailTitle" tabindex="-1">
+<h2 id="detailTitle">Inspect a claim</h2><p id="detailIntro">Select an example to inspect its provenance, interpretation, alternative explanations and revision history.</p>
+<div id="details"></div></section>
+<section class="panel"><h2>How this differs from proof</h2><div class="grid">
+<div><h3>Activity</h3><p>Someone records that an action happened. A self-report cannot establish quality, legality, safety or its effects.</p></div>
+<div><h3>Output</h3><p>An artifact or service is produced. Its existence does not establish who benefited or whether it worked.</p></div>
+<div><h3>Outcome</h3><p>A condition changes. Measurement design, confounders, comparison groups, uncertainty and harms still matter.</p></div>
+<div><h3>Accountability</h3><p>Correction, withdrawal and independent challenge must remain possible. A publication badge is not purchased praise.</p></div>
+</div></section>
+<footer class="footer">REGEN development-only evidence lab · No data collection, no external requests, no impact certification · <a href="../README.md">Project source</a></footer>
+</main>
+<script src="evidence-engine.js"></script>
+<script>
+"use strict";
+const PACK={"format":"regen-synthetic-evidence-ledger","version":"0.6.0","visibility":"synthetic_only_no_real_world_claims","sources":[{"id":"SYN-SRC-FOOD","title":"Invented household waste-count worksheet","kind":"hand_authored_fixture","origin":"invented_for_testing","limitations":"Counts are fabricated, have no observed households, and exclude displaced burdens."},{"id":"SYN-SRC-REPAIR","title":"Imaginary object-reuse options table","kind":"hand_authored_fixture","origin":"invented_for_testing","limitations":"Costs and alternatives are invented and do not establish material lifecycle effects."},{"id":"SYN-SRC-ACCESS","title":"Fictional access-design checklist","kind":"fictional_method_note","origin":"invented_for_testing","limitations":"The exercise has no interviews with disabled people or actual accessibility audit."},{"id":"SYN-SRC-CIVIC","title":"Invented public-service navigation rehearsal","kind":"hand_authored_fixture","origin":"invented_for_testing","limitations":"No municipality, program, applicant or service is represented."},{"id":"SYN-SRC-ECOLOGY","title":"Fictional habitat learning scenario","kind":"fictional_method_note","origin":"invented_for_testing","limitations":"No ecological site, wildlife data or environmental measurement exists."},{"id":"SYN-SRC-SYSTEMS","title":"Imaginary accountability compact evaluation","kind":"fictional_method_note","origin":"invented_for_testing","limitations":"No real company, affected people or independent reviewer participated."},{"id":"SYN-SRC-COMMUNITY","title":"Invented workshop participation table","kind":"hand_authored_fixture","origin":"invented_for_testing","limitations":"Figures are illustrative; no meeting, facilitator or participant exists."}],"claims":[{"id":"SYN-CLM-FOOD-ACTIVITY","revision":1,"title":"A fictional pantry checklist is completed","domain":"Food","claim_kind":"synthetic_observation","evidence_layer":"activity","statement":"In an invented scenario, a participant ticks a storage checklist and marks a learning exercise complete.","method":"A made-up scenario marks an activity; there is no observation, identity or performance evaluation.","source_ids":["SYN-SRC-FOOD"],"linked_quest_ids":["food-storage-map"],"metric":null,"limitations":"Completing a checklist cannot establish reduced waste, safe storage or a household outcome.","alternative_explanations":"The checkbox could be wrong, incomplete or unrelated to changes in actual food handling.","review_state":"not_reviewed","publication_state":"synthetic_only","verification_state":"not_verified","causality":"not_established","scope":"fictional_example_only"},{"id":"SYN-CLM-FOOD-OUTPUT","revision":1,"title":"A hypothetical checklist produces a plan","domain":"Food","claim_kind":"synthetic_observation","evidence_layer":"output","statement":"An imaginary learner writes three proposed waste-prevention ideas as an output, without acting on them.","method":"The fixture counts a written output in the imagined food literacy exercise only.","source_ids":["SYN-SRC-FOOD"],"linked_quest_ids":["food-pilot-simulation"],"metric":{"unit":"illustrative_items","baseline":0,"followup":3,"population":"invented_sample_only","design":"uncontrolled_fictional_before_after"},"limitations":"Three notes do not imply that any people took action, and the metric is invented.","alternative_explanations":"Notes might repeat existing ideas or create impractical, unsafe or high-cost plans.","review_state":"not_reviewed","publication_state":"synthetic_only","verification_state":"not_verified","causality":"not_established","scope":"fictional_example_only"},{"id":"SYN-CLM-FOOD-OUTCOME","revision":1,"title":"Invented before-after food-waste totals","domain":"Food","claim_kind":"synthetic_outcome","evidence_layer":"outcome","statement":"A hypothetical seven-day waste count changes from 40 to 30 invented items after an imagined planning intervention.","method":"No uncontrolled real-world study occurred; fabricated totals demonstrate how an unjustified outcome claim can arise.","source_ids":["SYN-SRC-FOOD"],"linked_quest_ids":["food-pilot-simulation"],"metric":{"unit":"illustrative_items","baseline":40,"followup":30,"population":"invented_sample_only","design":"uncontrolled_fictional_before_after"},"limitations":"A fictional reduction of ten units cannot demonstrate causal benefit or food safety.","alternative_explanations":"Changing attendance, menu, purchasing, counting methods, seasonality or disposal pathways could explain observed differences if these were real.","review_state":"not_reviewed","publication_state":"synthetic_only","verification_state":"not_verified","causality":"not_established","scope":"fictional_example_only"},{"id":"SYN-CLM-REPAIR-CHOICES","revision":1,"title":"Compare reuse routes without asserting benefit","domain":"Repair","claim_kind":"design_proposal","evidence_layer":"assumption","statement":"A fictional reuse decision grid proposes comparing repair, sharing and disposal on cost, effort and lifecycle uncertainty.","method":"A worksheet lists options and questions; no repair or measured effect occurs.","source_ids":["SYN-SRC-REPAIR"],"linked_quest_ids":["reuse-choice-grid"],"metric":null,"limitations":"An option list does not establish that reuse has a smaller footprint than alternatives.","alternative_explanations":"Repair travel, materials, storage, energy or user safety could overturn a tentative preference.","review_state":"not_reviewed","publication_state":"synthetic_only","verification_state":"not_verified","causality":"not_established","scope":"fictional_example_only"},{"id":"SYN-CLM-ACCESS-OPTIONS","revision":1,"title":"Proposed access alternatives in a mock workshop","domain":"Community","claim_kind":"synthetic_observation","evidence_layer":"output","statement":"An invented facilitator describes three alternative ways to participate without actually recruiting anybody.","method":"This synthetic fixture tallies alternatives written in an imaginary workshop plan; there is no actual usability or participation measurement.","source_ids":["SYN-SRC-ACCESS","SYN-SRC-COMMUNITY"],"linked_quest_ids":["access-workshop-sim"],"metric":{"unit":"illustrative_access_options","baseline":1,"followup":4,"population":"invented_sample_only","design":"uncontrolled_fictional_before_after"},"limitations":"Counting alternatives says nothing about usability or whether people feel welcome or protected.","alternative_explanations":"Participation modes may be inaccessible in practice or add hidden labor and privacy costs.","review_state":"not_reviewed","publication_state":"synthetic_only","verification_state":"not_verified","causality":"not_established","scope":"fictional_example_only"},{"id":"SYN-CLM-CIVIC-HYPOTHESIS","revision":1,"title":"A plain-language navigator may reduce confusion","domain":"Civic","claim_kind":"hypothesis","evidence_layer":"assumption","statement":"A fictional public-service navigation guide might help a reader, but the effect is purely hypothetical.","method":"A conceptual hypothesis is recorded without interviews, causal comparisons or service-use data.","source_ids":["SYN-SRC-CIVIC"],"linked_quest_ids":["service-access-guide"],"metric":null,"limitations":"The guide has no official standing; inaccurate requirements could mislead people.","alternative_explanations":"Access barriers may stem from eligibility, bureaucracy, inaccessible websites or other factors.","review_state":"not_reviewed","publication_state":"synthetic_only","verification_state":"not_verified","causality":"not_established","scope":"fictional_example_only"},{"id":"SYN-CLM-ECO-HARM","revision":1,"title":"A habitat concept may introduce ecological harm","domain":"Learning","claim_kind":"risk_counterexample","evidence_layer":"harm","statement":"A hypothetical planting idea might unintentionally harm a habitat if species or site permissions are wrong.","method":"The imaginary exercise explicitly examines possible adverse outcomes and stop conditions.","source_ids":["SYN-SRC-ECOLOGY"],"linked_quest_ids":["habitat-concept"],"metric":null,"limitations":"No species identification, site evaluation, ecological permit or real harm assessment exists.","alternative_explanations":"Changing climate, local species interactions and land management may require entirely different interventions.","review_state":"not_reviewed","publication_state":"synthetic_only","verification_state":"not_verified","causality":"not_established","scope":"fictional_example_only"},{"id":"SYN-CLM-SYSTEMS-COMPACT","revision":1,"title":"Independent review is part of an imaginary compact","domain":"Systems","claim_kind":"design_proposal","evidence_layer":"assumption","statement":"An imagined institution outlines measurable changes and external scrutiny, but no agreement or remediation exists.","method":"Fictional clauses are drafted to test accountability and correction pathways.","source_ids":["SYN-SRC-SYSTEMS"],"linked_quest_ids":["accountability-compact-model"],"metric":null,"limitations":"A draft compact is not consent, implementation, independent verification or institutional rehabilitation.","alternative_explanations":"Other reforms, enforceable remedies or replacement services may be more appropriate.","review_state":"not_reviewed","publication_state":"synthetic_only","verification_state":"not_verified","causality":"not_established","scope":"fictional_example_only"},{"id":"SYN-CLM-COMMUNITY-COUNTS","revision":2,"title":"Invented attendance versus inclusion comparison","domain":"Community","claim_kind":"synthetic_outcome","evidence_layer":"outcome","statement":"A made-up workshop increases attendance from eight to twelve fictional visits, which does not prove improved inclusion.","method":"The fictional before-after visits intentionally demonstrate a weak proxy for accessibility.","source_ids":["SYN-SRC-COMMUNITY","SYN-SRC-ACCESS"],"linked_quest_ids":["access-workshop-sim"],"metric":{"unit":"illustrative_visits","baseline":8,"followup":12,"population":"invented_sample_only","design":"uncontrolled_fictional_before_after"},"limitations":"Attendance totals reveal nothing about participant autonomy, retention, unmet needs, exclusion or coercion.","alternative_explanations":"Publicity, convenience, repeated visits, forced attendance or changes in counting could alter totals.","review_state":"not_reviewed","publication_state":"synthetic_only","verification_state":"not_verified","causality":"not_established","scope":"fictional_example_only"},{"id":"SYN-CLM-WITHDRAWN-CLAIM","revision":2,"title":"Withdrawn claim: sample engagement equals trust","domain":"Civic","claim_kind":"risk_counterexample","evidence_layer":"harm","statement":"An earlier fictional draft incorrectly equated illustrative clicks with residents trusting public institutions.","method":"The specimen remains visible to demonstrate withdrawal records without preserving an approved interpretation.","source_ids":["SYN-SRC-CIVIC"],"linked_quest_ids":["public-information"],"metric":null,"limitations":"Clicks are neither consent nor independently measured public trust; this example is withdrawn.","alternative_explanations":"Automated clicks, interface design or nonrepresentative interest may produce activity without confidence.","review_state":"not_reviewed","publication_state":"withdrawn_synthetic","verification_state":"not_verified","causality":"not_established","scope":"fictional_example_only"}],"events":[{"id":"SYN-EVT-COMMUNITY-001","claim_id":"SYN-CLM-COMMUNITY-COUNTS","kind":"clarification","from_revision":1,"to_revision":2,"reason":"Clarify that hypothetical attendance counts cannot establish inclusive participation or causal benefit.","status":"synthetic_event_only"},{"id":"SYN-EVT-CIVIC-001","claim_id":"SYN-CLM-WITHDRAWN-CLAIM","kind":"withdrawal","from_revision":1,"to_revision":2,"reason":"Withdraw an invalid fictional proxy that confused website clicks with public trust or consent.","status":"synthetic_event_only"}]};
+const E=window.REGENEvidence,$=id=>document.getElementById(id);
+E.validate(PACK);
+const sources=new Map(PACK.sources.map(s=>[s.id,s]));
+function node(tag,content,parent,cls){
+ const element=document.createElement(tag);
+ if(content!==undefined)element.textContent=String(content);
+ if(cls)element.className=cls;
+ if(parent)parent.appendChild(element);
+ return element;
+}
+function empty(el){while(el.firstChild)el.removeChild(el.firstChild);}
+const stats=E.summary(PACK);
+for(const [name,value] of [["Fictional claims",stats.fictional_claims],["Invented sources",stats.synthetic_sources],["Example corrections",stats.correction_events],["Verified real outcomes",stats.verified_outcomes]]){
+ const el=node("div",undefined,$("stats"),"stat");
+ node("strong",value,el);node("small",name,el);
+}
+for(const d of [...new Set(PACK.claims.map(c=>c.domain))].sort()){const o=node("option",d,$("domain"));o.value=d;}
+for(const k of [...new Set(PACK.claims.map(c=>c.claim_kind))].sort()){const o=node("option",k.replaceAll("_"," "),$("kind"));o.value=k;}
+function section(name,value,parent){
+ const div=node("div",undefined,parent,"detailrow");
+ node("strong",name,div);node("p",value||"Not provided",div);
+}
+function inspect(id){
+ const c=PACK.claims.find(x=>x.id===id);if(!c)return;
+ $("detailTitle").textContent=c.title;
+ $("detailIntro").textContent=c.publication_state==="withdrawn_synthetic"?
+  "Withdrawn fictional claim. It must not be used as an active conclusion.":"Illustrative only: this record remains unreviewed and unverified.";
+ const root=$("details");empty(root);
+ section("Stable ID and revision",c.id+" · revision "+c.revision,root);
+ section("Classification",c.domain+" / "+c.claim_kind.replaceAll("_"," ")+" / "+c.evidence_layer,root);
+ section("What the fictional record says",c.statement,root);
+ section("How the fictional example was constructed",c.method,root);
+ section("What it cannot establish",c.limitations,root);
+ section("Other possible explanations",c.alternative_explanations,root);
+ section("Review and permission","Not reviewed · Not verified · Causality not established · Fictional example only",root);
+ if(c.metric){
+  const m=E.metricIllustration(c.metric);
+  const p=node("div",undefined,root,"metric");
+  node("strong","Arithmetic on invented numbers only",p);
+  node("p","Invented baseline "+m.baseline+"; invented follow-up "+m.followup+
+  "; arithmetic difference "+m.change+" "+m.unit.replaceAll("_"," ")+
+  (m.percentage===null?"; percent change undefined (baseline 0)":("; arithmetic percent change "+m.percentage+"%"))+".",p);
+  node("p",m.disclosure,p);
+ }
+ const list=node("div",undefined,root,"detailrow");
+ node("strong","Synthetic source trace",list);
+ const ul=node("ul",undefined,list,"plainlist");
+ for(const id of c.source_ids){
+  const s=sources.get(id);
+  node("li",id+" · "+s.title+" · invented for testing · "+s.limitations,ul);
+ }
+ const events=PACK.events.filter(e=>e.claim_id===c.id);
+ const log=node("div",undefined,root,"detailrow");
+ node("strong","Correction or withdrawal history",log);
+ if(!events.length)node("p","No revision event in this fictional sample.",log);
+ else{
+  const list=node("ul",undefined,log,"plainlist");
+  for(const ev of events)node("li",ev.kind+" · revision "+ev.from_revision+" → "+ev.to_revision+" · "+ev.reason,list);
+ }
+ const linked=node("div",undefined,root,"detailrow");
+ node("strong","Related illustrative quests (not evidence of completion)",linked);
+ node("p",c.linked_quest_ids.join(", ")||"None",linked);
+ if(typeof root.focus==="function")$("detail").focus();
+}
+function render(){
+ const results=E.search(PACK,{domain:$("domain").value,kind:$("kind").value,query:$("query").value});
+ $("matches").textContent=results.length+" fictional example "+(results.length===1?"claim":"claims")+". No real-world verification.";
+ const root=$("claims");empty(root);
+ for(const c of results){
+  const card=node("article",undefined,root,"claim");
+  const tags=node("div",undefined,card,"tags");
+  node("span",c.domain,tags,"tag");
+  node("span",c.evidence_layer,tags,"tag");
+  if(c.publication_state==="withdrawn_synthetic")node("span","WITHDRAWN",tags,"tag withdrawn");
+  node("h3",c.title,card);
+  node("p",c.statement,card);
+  node("p","Not independently verified · invented example",card,"small");
+  const button=node("button","Inspect source & limits",card,"secondary");
+  button.type="button";button.addEventListener("click",()=>inspect(c.id));
+ }
+ if(!results.length)node("p","No fictional claims match. Try broadening the filters.",root);
+}
+for(const id of ["domain","kind","query"])$(id).addEventListener(id==="query"?"input":"change",render);
+render();inspect(PACK.claims[0].id);
+</script></body></html>

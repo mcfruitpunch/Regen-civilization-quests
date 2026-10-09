@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "REGEN v0.6 fictional evidence ledger",
+  "description": "Only fictional fixtures. A valid record is not true, safe, validated or publishable.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "visibility",
+    "sources",
+    "claims",
+    "events"
+  ],
+  "properties": {
+    "format": {
+      "const": "regen-synthetic-evidence-ledger"
+    },
+    "version": {
+      "const": "0.6.0"
+    },
+    "visibility": {
+      "const": "synthetic_only_no_real_world_claims"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "kind",
+          "origin",
+          "limitations"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^SYN-SRC-[A-Z0-9-]+$",
+            "minLength": 10,
+            "maxLength": 90
+          },
+          "title": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 1600
+          },
+          "kind": {
+            "enum": [
+              "hand_authored_fixture",
+              "fictional_method_note"
+            ]
+          },
+          "origin": {
+            "const": "invented_for_testing"
+          },
+          "limitations": {
+            "type": "string",
+            "minLength": 25,
+            "maxLength": 1600
+          }
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "revision",
+          "title",
+          "domain",
+          "claim_kind",
+          "evidence_layer",
+          "statement",
+          "method",
+          "source_ids",
+          "linked_quest_ids",
+          "metric",
+          "limitations",
+          "alternative_explanations",
+          "review_state",
+          "publication_state",
+          "verification_state",
+          "causality",
+          "scope"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^SYN-CLM-[A-Z0-9-]+$",
+            "minLength": 10,
+            "maxLength": 90
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "title": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 1600
+          },
+          "domain": {
+            "enum": [
+              "Community",
+              "Learning",
+              "Repair",
+              "Food",
+              "Civic",
+              "Systems"
+            ]
+          },
+          "claim_kind": {
+            "enum": [
+              "synthetic_observation",
+              "hypothesis",
+              "design_proposal",
+              "synthetic_outcome",
+              "risk_counterexample"
+            ]
+          },
+          "evidence_layer": {
+            "enum": [
+              "activity",
+              "output",
+              "outcome",
+              "harm",
+              "assumption"
+            ]
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 35,
+            "maxLength": 1600
+          },
+          "method": {
+            "type": "string",
+            "minLength": 30,
+            "maxLength": 1600
+          },
+          "source_ids": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^SYN-SRC-[A-Z0-9-]+$"
+            }
+          },
+          "linked_quest_ids": {
+            "type": "array",
+            "maxItems": 10,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            }
+          },
+          "metric": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "unit",
+                  "baseline",
+                  "followup",
+                  "population",
+                  "design"
+                ],
+                "properties": {
+                  "unit": {
+                    "enum": [
+                      "illustrative_items",
+                      "illustrative_minutes",
+                      "illustrative_visits",
+                      "illustrative_access_options"
+                    ]
+                  },
+                  "baseline": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1000000
+                  },
+                  "followup": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1000000
+                  },
+                  "population": {
+                    "const": "invented_sample_only"
+                  },
+                  "design": {
+                    "const": "uncontrolled_fictional_before_after"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "limitations": {
+            "type": "string",
+            "minLength": 30,
+            "maxLength": 1600
+          },
+          "alternative_explanations": {
+            "type": "string",
+            "minLength": 30,
+            "maxLength": 1600
+          },
+          "review_state": {
+            "const": "not_reviewed"
+          },
+          "publication_state": {
+            "enum": [
+              "synthetic_only",
+              "withdrawn_synthetic"
+            ]
+          },
+          "verification_state": {
+            "const": "not_verified"
+          },
+          "causality": {
+            "const": "not_established"
+          },
+          "scope": {
+            "const": "fictional_example_only"
+          }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "claim_id",
+          "kind",
+          "from_revision",
+          "to_revision",
+          "reason",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^SYN-EVT-[A-Z0-9-]+$",
+            "minLength": 10,
+            "maxLength": 90
+          },
+          "claim_id": {
+            "type": "string",
+            "pattern": "^SYN-CLM-[A-Z0-9-]+$"
+          },
+          "kind": {
+            "enum": [
+              "clarification",
+              "withdrawal"
+            ]
+          },
+          "from_revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "to_revision": {
+            "type": "integer",
+            "minimum": 2
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 30,
+            "maxLength": 1600
+          },
+          "status": {
+            "const": "synthetic_event_only"
+          }
+        }
+      }
+    }
+  }
+}

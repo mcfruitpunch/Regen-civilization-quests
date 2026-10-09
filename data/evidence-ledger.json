@@ -1,0 +1,344 @@
+{
+  "format": "regen-synthetic-evidence-ledger",
+  "version": "0.6.0",
+  "visibility": "synthetic_only_no_real_world_claims",
+  "sources": [
+    {
+      "id": "SYN-SRC-FOOD",
+      "title": "Invented household waste-count worksheet",
+      "kind": "hand_authored_fixture",
+      "origin": "invented_for_testing",
+      "limitations": "Counts are fabricated, have no observed households, and exclude displaced burdens."
+    },
+    {
+      "id": "SYN-SRC-REPAIR",
+      "title": "Imaginary object-reuse options table",
+      "kind": "hand_authored_fixture",
+      "origin": "invented_for_testing",
+      "limitations": "Costs and alternatives are invented and do not establish material lifecycle effects."
+    },
+    {
+      "id": "SYN-SRC-ACCESS",
+      "title": "Fictional access-design checklist",
+      "kind": "fictional_method_note",
+      "origin": "invented_for_testing",
+      "limitations": "The exercise has no interviews with disabled people or actual accessibility audit."
+    },
+    {
+      "id": "SYN-SRC-CIVIC",
+      "title": "Invented public-service navigation rehearsal",
+      "kind": "hand_authored_fixture",
+      "origin": "invented_for_testing",
+      "limitations": "No municipality, program, applicant or service is represented."
+    },
+    {
+      "id": "SYN-SRC-ECOLOGY",
+      "title": "Fictional habitat learning scenario",
+      "kind": "fictional_method_note",
+      "origin": "invented_for_testing",
+      "limitations": "No ecological site, wildlife data or environmental measurement exists."
+    },
+    {
+      "id": "SYN-SRC-SYSTEMS",
+      "title": "Imaginary accountability compact evaluation",
+      "kind": "fictional_method_note",
+      "origin": "invented_for_testing",
+      "limitations": "No real company, affected people or independent reviewer participated."
+    },
+    {
+      "id": "SYN-SRC-COMMUNITY",
+      "title": "Invented workshop participation table",
+      "kind": "hand_authored_fixture",
+      "origin": "invented_for_testing",
+      "limitations": "Figures are illustrative; no meeting, facilitator or participant exists."
+    }
+  ],
+  "claims": [
+    {
+      "id": "SYN-CLM-FOOD-ACTIVITY",
+      "revision": 1,
+      "title": "A fictional pantry checklist is completed",
+      "domain": "Food",
+      "claim_kind": "synthetic_observation",
+      "evidence_layer": "activity",
+      "statement": "In an invented scenario, a participant ticks a storage checklist and marks a learning exercise complete.",
+      "method": "A made-up scenario marks an activity; there is no observation, identity or performance evaluation.",
+      "source_ids": [
+        "SYN-SRC-FOOD"
+      ],
+      "linked_quest_ids": [
+        "food-storage-map"
+      ],
+      "metric": null,
+      "limitations": "Completing a checklist cannot establish reduced waste, safe storage or a household outcome.",
+      "alternative_explanations": "The checkbox could be wrong, incomplete or unrelated to changes in actual food handling.",
+      "review_state": "not_reviewed",
+      "publication_state": "synthetic_only",
+      "verification_state": "not_verified",
+      "causality": "not_established",
+      "scope": "fictional_example_only"
+    },
+    {
+      "id": "SYN-CLM-FOOD-OUTPUT",
+      "revision": 1,
+      "title": "A hypothetical checklist produces a plan",
+      "domain": "Food",
+      "claim_kind": "synthetic_observation",
+      "evidence_layer": "output",
+      "statement": "An imaginary learner writes three proposed waste-prevention ideas as an output, without acting on them.",
+      "method": "The fixture counts a written output in the imagined food literacy exercise only.",
+      "source_ids": [
+        "SYN-SRC-FOOD"
+      ],
+      "linked_quest_ids": [
+        "food-pilot-simulation"
+      ],
+      "metric": {
+        "unit": "illustrative_items",
+        "baseline": 0,
+        "followup": 3,
+        "population": "invented_sample_only",
+        "design": "uncontrolled_fictional_before_after"
+      },
+      "limitations": "Three notes do not imply that any people took action, and the metric is invented.",
+      "alternative_explanations": "Notes might repeat existing ideas or create impractical, unsafe or high-cost plans.",
+      "review_state": "not_reviewed",
+      "publication_state": "synthetic_only",
+      "verification_state": "not_verified",
+      "causality": "not_established",
+      "scope": "fictional_example_only"
+    },
+    {
+      "id": "SYN-CLM-FOOD-OUTCOME",
+      "revision": 1,
+      "title": "Invented before-after food-waste totals",
+      "domain": "Food",
+      "claim_kind": "synthetic_outcome",
+      "evidence_layer": "outcome",
+      "statement": "A hypothetical seven-day waste count changes from 40 to 30 invented items after an imagined planning intervention.",
+      "method": "No uncontrolled real-world study occurred; fabricated totals demonstrate how an unjustified outcome claim can arise.",
+      "source_ids": [
+        "SYN-SRC-FOOD"
+      ],
+      "linked_quest_ids": [
+        "food-pilot-simulation"
+      ],
+      "metric": {
+        "unit": "illustrative_items",
+        "baseline": 40,
+        "followup": 30,
+        "population": "invented_sample_only",
+        "design": "uncontrolled_fictional_before_after"
+      },
+      "limitations": "A fictional reduction of ten units cannot demonstrate causal benefit or food safety.",
+      "alternative_explanations": "Changing attendance, menu, purchasing, counting methods, seasonality or disposal pathways could explain observed differences if these were real.",
+      "review_state": "not_reviewed",
+      "publication_state": "synthetic_only",
+      "verification_state": "not_verified",
+      "causality": "not_established",
+      "scope": "fictional_example_only"
+    },
+    {
+      "id": "SYN-CLM-REPAIR-CHOICES",
+      "revision": 1,
+      "title": "Compare reuse routes without asserting benefit",
+      "domain": "Repair",
+      "claim_kind": "design_proposal",
+      "evidence_layer": "assumption",
+      "statement": "A fictional reuse decision grid proposes comparing repair, sharing and disposal on cost, effort and lifecycle uncertainty.",
+      "method": "A worksheet lists options and questions; no repair or measured effect occurs.",
+      "source_ids": [
+        "SYN-SRC-REPAIR"
+      ],
+      "linked_quest_ids": [
+        "reuse-choice-grid"
+      ],
+      "metric": null,
+      "limitations": "An option list does not establish that reuse has a smaller footprint than alternatives.",
+      "alternative_explanations": "Repair travel, materials, storage, energy or user safety could overturn a tentative preference.",
+      "review_state": "not_reviewed",
+      "publication_state": "synthetic_only",
+      "verification_state": "not_verified",
+      "causality": "not_established",
+      "scope": "fictional_example_only"
+    },
+    {
+      "id": "SYN-CLM-ACCESS-OPTIONS",
+      "revision": 1,
+      "title": "Proposed access alternatives in a mock workshop",
+      "domain": "Community",
+      "claim_kind": "synthetic_observation",
+      "evidence_layer": "output",
+      "statement": "An invented facilitator describes three alternative ways to participate without actually recruiting anybody.",
+      "method": "This synthetic fixture tallies alternatives written in an imaginary workshop plan; there is no actual usability or participation measurement.",
+      "source_ids": [
+        "SYN-SRC-ACCESS",
+        "SYN-SRC-COMMUNITY"
+      ],
+      "linked_quest_ids": [
+        "access-workshop-sim"
+      ],
+      "metric": {
+        "unit": "illustrative_access_options",
+        "baseline": 1,
+        "followup": 4,
+        "population": "invented_sample_only",
+        "design": "uncontrolled_fictional_before_after"
+      },
+      "limitations": "Counting alternatives says nothing about usability or whether people feel welcome or protected.",
+      "alternative_explanations": "Participation modes may be inaccessible in practice or add hidden labor and privacy costs.",
+      "review_state": "not_reviewed",
+      "publication_state": "synthetic_only",
+      "verification_state": "not_verified",
+      "causality": "not_established",
+      "scope": "fictional_example_only"
+    },
+    {
+      "id": "SYN-CLM-CIVIC-HYPOTHESIS",
+      "revision": 1,
+      "title": "A plain-language navigator may reduce confusion",
+      "domain": "Civic",
+      "claim_kind": "hypothesis",
+      "evidence_layer": "assumption",
+      "statement": "A fictional public-service navigation guide might help a reader, but the effect is purely hypothetical.",
+      "method": "A conceptual hypothesis is recorded without interviews, causal comparisons or service-use data.",
+      "source_ids": [
+        "SYN-SRC-CIVIC"
+      ],
+      "linked_quest_ids": [
+        "service-access-guide"
+      ],
+      "metric": null,
+      "limitations": "The guide has no official standing; inaccurate requirements could mislead people.",
+      "alternative_explanations": "Access barriers may stem from eligibility, bureaucracy, inaccessible websites or other factors.",
+      "review_state": "not_reviewed",
+      "publication_state": "synthetic_only",
+      "verification_state": "not_verified",
+      "causality": "not_established",
+      "scope": "fictional_example_only"
+    },
+    {
+      "id": "SYN-CLM-ECO-HARM",
+      "revision": 1,
+      "title": "A habitat concept may introduce ecological harm",
+      "domain": "Learning",
+      "claim_kind": "risk_counterexample",
+      "evidence_layer": "harm",
+      "statement": "A hypothetical planting idea might unintentionally harm a habitat if species or site permissions are wrong.",
+      "method": "The imaginary exercise explicitly examines possible adverse outcomes and stop conditions.",
+      "source_ids": [
+        "SYN-SRC-ECOLOGY"
+      ],
+      "linked_quest_ids": [
+        "habitat-concept"
+      ],
+      "metric": null,
+      "limitations": "No species identification, site evaluation, ecological permit or real harm assessment exists.",
+      "alternative_explanations": "Changing climate, local species interactions and land management may require entirely different interventions.",
+      "review_state": "not_reviewed",
+      "publication_state": "synthetic_only",
+      "verification_state": "not_verified",
+      "causality": "not_established",
+      "scope": "fictional_example_only"
+    },
+    {
+      "id": "SYN-CLM-SYSTEMS-COMPACT",
+      "revision": 1,
+      "title": "Independent review is part of an imaginary compact",
+      "domain": "Systems",
+      "claim_kind": "design_proposal",
+      "evidence_layer": "assumption",
+      "statement": "An imagined institution outlines measurable changes and external scrutiny, but no agreement or remediation exists.",
+      "method": "Fictional clauses are drafted to test accountability and correction pathways.",
+      "source_ids": [
+        "SYN-SRC-SYSTEMS"
+      ],
+      "linked_quest_ids": [
+        "accountability-compact-model"
+      ],
+      "metric": null,
+      "limitations": "A draft compact is not consent, implementation, independent verification or institutional rehabilitation.",
+      "alternative_explanations": "Other reforms, enforceable remedies or replacement services may be more appropriate.",
+      "review_state": "not_reviewed",
+      "publication_state": "synthetic_only",
+      "verification_state": "not_verified",
+      "causality": "not_established",
+      "scope": "fictional_example_only"
+    },
+    {
+      "id": "SYN-CLM-COMMUNITY-COUNTS",
+      "revision": 2,
+      "title": "Invented attendance versus inclusion comparison",
+      "domain": "Community",
+      "claim_kind": "synthetic_outcome",
+      "evidence_layer": "outcome",
+      "statement": "A made-up workshop increases attendance from eight to twelve fictional visits, which does not prove improved inclusion.",
+      "method": "The fictional before-after visits intentionally demonstrate a weak proxy for accessibility.",
+      "source_ids": [
+        "SYN-SRC-COMMUNITY",
+        "SYN-SRC-ACCESS"
+      ],
+      "linked_quest_ids": [
+        "access-workshop-sim"
+      ],
+      "metric": {
+        "unit": "illustrative_visits",
+        "baseline": 8,
+        "followup": 12,
+        "population": "invented_sample_only",
+        "design": "uncontrolled_fictional_before_after"
+      },
+      "limitations": "Attendance totals reveal nothing about participant autonomy, retention, unmet needs, exclusion or coercion.",
+      "alternative_explanations": "Publicity, convenience, repeated visits, forced attendance or changes in counting could alter totals.",
+      "review_state": "not_reviewed",
+      "publication_state": "synthetic_only",
+      "verification_state": "not_verified",
+      "causality": "not_established",
+      "scope": "fictional_example_only"
+    },
+    {
+      "id": "SYN-CLM-WITHDRAWN-CLAIM",
+      "revision": 2,
+      "title": "Withdrawn claim: sample engagement equals trust",
+      "domain": "Civic",
+      "claim_kind": "risk_counterexample",
+      "evidence_layer": "harm",
+      "statement": "An earlier fictional draft incorrectly equated illustrative clicks with residents trusting public institutions.",
+      "method": "The specimen remains visible to demonstrate withdrawal records without preserving an approved interpretation.",
+      "source_ids": [
+        "SYN-SRC-CIVIC"
+      ],
+      "linked_quest_ids": [
+        "public-information"
+      ],
+      "metric": null,
+      "limitations": "Clicks are neither consent nor independently measured public trust; this example is withdrawn.",
+      "alternative_explanations": "Automated clicks, interface design or nonrepresentative interest may produce activity without confidence.",
+      "review_state": "not_reviewed",
+      "publication_state": "withdrawn_synthetic",
+      "verification_state": "not_verified",
+      "causality": "not_established",
+      "scope": "fictional_example_only"
+    }
+  ],
+  "events": [
+    {
+      "id": "SYN-EVT-COMMUNITY-001",
+      "claim_id": "SYN-CLM-COMMUNITY-COUNTS",
+      "kind": "clarification",
+      "from_revision": 1,
+      "to_revision": 2,
+      "reason": "Clarify that hypothetical attendance counts cannot establish inclusive participation or causal benefit.",
+      "status": "synthetic_event_only"
+    },
+    {
+      "id": "SYN-EVT-CIVIC-001",
+      "claim_id": "SYN-CLM-WITHDRAWN-CLAIM",
+      "kind": "withdrawal",
+      "from_revision": 1,
+      "to_revision": 2,
+      "reason": "Withdraw an invalid fictional proxy that confused website clicks with public trust or consent.",
+      "status": "synthetic_event_only"
+    }
+  ]
+}

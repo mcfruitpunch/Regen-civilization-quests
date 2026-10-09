@@ -1,6 +1,6 @@
 # REGEN — Civilization Quest System
 
-**Version:** 0.5 local progress vault branch · **Status:** concept + offline interactive prototype · **Date:** 2026-10-09
+**Version:** 0.6 evidence and provenance branch · **Status:** concept + offline interactive prototype · **Date:** 2026-10-09
 
 > Turn the work of building regenerative communities into an approachable, cooperative, real-world quest system.
 
@@ -36,6 +36,12 @@ See [`docs/13-precommunity-lab-v0.4.md`](docs/13-precommunity-lab-v0.4.md) for w
 
 The interactive prototype now includes **Progress vault**: a private, offline space to download a strictly self-reported JSON backup, preview older v1 or current v2 backups, choose **Combine** or **Replace** explicitly, and erase REGEN's local demo progress key. All imports are inspected before application, unknown quest IDs are omitted, unsupported evidence claims are rejected, and deletion cannot reach backups or other devices. There are no accounts or servers. [Read the progress ownership guide](docs/15-progress-ownership-v0.5.md).
 
+## Evidence & uncertainty lab (v0.6)
+
+Open [`web/evidence.html`](web/evidence.html) to explore a **synthetic-only provenance ledger** with ten fictional claims, seven invented source fixtures, and two example revision/withdrawal records. The read-only lab explicitly separates activities, outputs, outcomes, harm, and hypotheses. It reports limitations, possible alternate explanations and what arithmetic on invented numbers can—not—establish. **Zero real-world or independently verified impacts are claimed.**
+
+The structured contract and tests live in [`schema/evidence-ledger.schema.json`](schema/evidence-ledger.schema.json), [`scripts/check_evidence.py`](scripts/check_evidence.py) and the [v0.6 provenance guide](docs/16-evidence-provenance-v0.6.md). No source uploads, network requests, real participant data or private Atlas records are introduced.
+
 ## Read the foundation
 
 | Document | Purpose |
@@ -54,10 +60,11 @@ The interactive prototype now includes **Progress vault**: a private, offline sp
 | [`docs/13-precommunity-lab-v0.4.md`](docs/13-precommunity-lab-v0.4.md) | Pre-community curriculum, simulations, maturity gates, and build roadmap |
 | [`docs/14-atlas-integration-contract.md`](docs/14-atlas-integration-contract.md) | Source-permission and versioning boundary between REGEN and the Atlas |
 | [`docs/15-progress-ownership-v0.5.md`](docs/15-progress-ownership-v0.5.md) | Local backup, restore preview, ownership and deletion boundaries |
+| [`docs/16-evidence-provenance-v0.6.md`](docs/16-evidence-provenance-v0.6.md) | Strict synthetic source ledger, correction chain and impact-claim limitations |
 
 Quest examples are in [`data/quests.json`](data/quests.json), contract in [`schema/quest.schema.json`](schema/quest.schema.json), and explainable progression logic in [`web/quest-engine.js`](web/quest-engine.js). Recommendations do not certify a person's abilities or the impact of their work. 
 
-## Not in scope at v0.5
+## Not in scope at v0.6
 
 - No social network, public profiles, global leaderboard, or reputational ranking.
 - No collection of participant location or identity and no uploading evidence.
@@ -71,7 +78,7 @@ Quest examples are in [`data/quests.json`](data/quests.json), contract in [`sche
 1. Run a small, opt-in pilot with a community group and pick **one** testable outcome (e.g. food waste prevented in a consenting venue).
 2. Co-design the quest safety and verification process with those affected.
 3. Decide the software/content license and adopt contribution, safety, and governance policies before public release.
-4. Review the stacked v0.2/v0.3/v0.4/v0.5 pull requests, hosted CI, and architecture. Real-device accessibility and independent review remain necessary.
+4. Review the stacked v0.2/v0.3/v0.4/v0.5/v0.6 pull requests, hosted CI, and architecture. Real-device accessibility and independent review remain necessary.
 5. Later connect Atlas nodes to quest pathways through a versioned, human-reviewed interface.
 
 This is an **early design**, not a validated social intervention. Preserve dignity and agency; measure benefits and unintended harms, not just participation.
