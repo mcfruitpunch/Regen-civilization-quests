@@ -15,7 +15,7 @@ jobs:
       - run: python tests/test_project.py
       - run: python tests/build_data.py
       - run: node --check web/quest-engine.js
-      - run: node --test tests/quest_engine.test.cjs
+      - run: node --test tests/*.test.cjs
       - run: python tests/build_prototype.py
       - run: git diff --exit-code -- web/index.html
       - name: Check JS syntax
