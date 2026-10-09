@@ -1,0 +1,161 @@
+{
+  "version": "0.4.0",
+  "status": "fictional_precommunity_simulations",
+  "description": "Invented, non-identifying capacity and topic constraints. Traces are hypothetical and never represent participant actions or impact.",
+  "scenarios": [
+    {
+      "id": "ten-minute-onboarding",
+      "name": "Ten-minute first steps",
+      "description": "A hypothetical participant has ten minutes per session and twenty minutes total.",
+      "preferences": {
+        "domain": "all",
+        "skill": "all",
+        "minutes": 10,
+        "setting": "remote"
+      },
+      "step_limit": 5,
+      "total_minutes_budget": 20,
+      "starting_completed_ids": [],
+      "blocked_quest_ids": [],
+      "pause_after_steps": null
+    },
+    {
+      "id": "repair-at-home",
+      "name": "Low-resource repair learning",
+      "description": "Explore repair learning without purchases, venues or hazardous work.",
+      "preferences": {
+        "domain": "Repair",
+        "skill": "all",
+        "minutes": 35,
+        "setting": "remote"
+      },
+      "step_limit": 6,
+      "total_minutes_budget": 100,
+      "starting_completed_ids": [],
+      "blocked_quest_ids": [],
+      "pause_after_steps": null
+    },
+    {
+      "id": "food-research",
+      "name": "Food pathway without site access",
+      "description": "A food-curious learner works on personal research only; simulated blocked workplace observation.",
+      "preferences": {
+        "domain": "Food",
+        "skill": "all",
+        "minutes": 45,
+        "setting": "remote"
+      },
+      "step_limit": 6,
+      "total_minutes_budget": 115,
+      "starting_completed_ids": [],
+      "blocked_quest_ids": [
+        "food-waste-baseline",
+        "food-waste-pilot"
+      ],
+      "pause_after_steps": null
+    },
+    {
+      "id": "civic-information",
+      "name": "Civic literacy from home",
+      "description": "Try neutral information learning without contacting people or institutions.",
+      "preferences": {
+        "domain": "Civic",
+        "skill": "all",
+        "minutes": 50,
+        "setting": "remote"
+      },
+      "step_limit": 5,
+      "total_minutes_budget": 120,
+      "starting_completed_ids": [],
+      "blocked_quest_ids": [],
+      "pause_after_steps": null
+    },
+    {
+      "id": "ecology-limited-time",
+      "name": "Ecology learning in small windows",
+      "description": "Learn environmental systems in half-hour chunks without site access.",
+      "preferences": {
+        "domain": "all",
+        "skill": "Ecological Restoration",
+        "minutes": 30,
+        "setting": "remote"
+      },
+      "step_limit": 5,
+      "total_minutes_budget": 95,
+      "starting_completed_ids": [],
+      "blocked_quest_ids": [],
+      "pause_after_steps": null
+    },
+    {
+      "id": "institutional-dialogue",
+      "name": "Accountability pathway rehearsal",
+      "description": "Explore the fictional institutional pathway with initial concept reflection already marked complete.",
+      "preferences": {
+        "domain": "Systems",
+        "skill": "all",
+        "minutes": 65,
+        "setting": "remote"
+      },
+      "step_limit": 6,
+      "total_minutes_budget": 180,
+      "starting_completed_ids": [
+        "first-spark"
+      ],
+      "blocked_quest_ids": [],
+      "pause_after_steps": null
+    },
+    {
+      "id": "permission-unavailable",
+      "name": "No organizational permission",
+      "description": "A constrained learner should not be routed into site-dependent quests.",
+      "preferences": {
+        "domain": "all",
+        "skill": "all",
+        "minutes": 60,
+        "setting": "remote"
+      },
+      "step_limit": 8,
+      "total_minutes_budget": 220,
+      "starting_completed_ids": [],
+      "blocked_quest_ids": [
+        "food-waste-baseline",
+        "food-waste-pilot",
+        "shared-repair",
+        "public-meeting"
+      ],
+      "pause_after_steps": null
+    },
+    {
+      "id": "interrupted-learning",
+      "name": "A pause must be respected",
+      "description": "Synthetic rehearsal of stopping halfway through a sequence without inventing completion.",
+      "preferences": {
+        "domain": "Community",
+        "skill": "all",
+        "minutes": 45,
+        "setting": "remote"
+      },
+      "step_limit": 6,
+      "total_minutes_budget": 160,
+      "starting_completed_ids": [],
+      "blocked_quest_ids": [],
+      "pause_after_steps": 2
+    },
+    {
+      "id": "no-matching-preferences",
+      "name": "No suitable options",
+      "description": "Model an intentionally empty preference combination, with an honest empty state.",
+      "preferences": {
+        "domain": "Repair",
+        "skill": "Civic Transformation",
+        "minutes": 5,
+        "setting": "community"
+      },
+      "step_limit": 3,
+      "total_minutes_budget": 30,
+      "starting_completed_ids": [],
+      "blocked_quest_ids": [],
+      "pause_after_steps": null
+    }
+  ]
+}
