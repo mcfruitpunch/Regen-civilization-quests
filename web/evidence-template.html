@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="REGEN v0.6 fictional evidence explorer. No real observations, uploads, or verified social or ecological outcomes.">
+<title>REGEN / Evidence & Uncertainty Lab</title>
+<style>
+:root{color-scheme:dark;--bg:#0a1711;--panel:#12271c;--panel2:#1a3929;--border:#335443;--text:#eef9ef;--soft:#b8d4bd;--mint:#b9ee9d;--warm:#f8d4a2;--danger:#f2b2ae}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 83% 0,#245138,var(--bg) 57%);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}main{width:min(1100px,calc(100% - 28px));margin:30px auto 90px}h1{font-size:clamp(2.1rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.035em;margin:14px 0}h2{font-size:1.6rem;letter-spacing:-.02em}h3{margin:0 0 8px;font-size:1.15rem}a{color:var(--mint)}p,li{color:var(--soft)}.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--mint)}.notice{border:1px solid #96764b;border-left:5px solid var(--warm);background:#36291e;border-radius:12px;padding:20px;margin:20px 0}.notice strong{color:var(--text)}.panel{padding:22px;border-radius:16px;background:var(--panel);border:1px solid var(--border);margin:16px 0}.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:21px 0}.stat{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:16px}.stat strong{display:block;font-size:1.8rem}.stat small{font-size:.83rem;color:var(--soft)}.filtergrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}label{display:block;font-weight:650;margin-bottom:8px}input,select,button{font:inherit}input,select{padding:11px;width:100%;color:var(--text);background:#081b11;border:1px solid #617e6a;border-radius:9px}button{padding:11px 17px;background:var(--mint);color:#102215;border:none;border-radius:10px;cursor:pointer;font-weight:800}button.secondary{background:transparent;border:1px solid #61846e;color:var(--text)}:is(button,select,input,a):focus-visible{outline:3px solid var(--warm);outline-offset:3px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}.claim{background:var(--panel);border:1px solid var(--border);border-radius:15px;padding:20px;display:flex;flex-direction:column;gap:9px}.claim p{margin:0}.tags{display:flex;flex-wrap:wrap;gap:8px}.tag{border:1px solid #66846c;border-radius:999px;padding:3px 10px;font-size:.78rem;color:var(--soft)}.tag.withdrawn{border-color:#c58377;color:var(--danger)}.claim button{margin-top:auto}.small{font-size:.84rem}.detailrow{border-bottom:1px solid var(--border);padding:10px 0;overflow-wrap:anywhere}.detailrow strong{display:block;font-size:.8rem;color:var(--mint)}.detailrow p{margin:4px 0}.plainlist{padding-left:21px}.plainlist li{overflow-wrap:anywhere;margin:6px 0}.metric{background:var(--panel2);border-left:4px solid var(--warm);padding:14px;border-radius:8px}.footer{margin-top:38px;border-top:1px solid var(--border);padding-top:20px}.links{display:flex;gap:20px;flex-wrap:wrap}@media(max-width:750px){.summary{grid-template-columns:repeat(2,1fr)}.filtergrid{grid-template-columns:1fr}.panel{padding:16px}}@media(max-width:420px){.summary{grid-template-columns:1fr 1fr}.stat strong{font-size:1.4rem}}
+</style></head><body><main>
+<div class="links"><a href="index.html">← Quest prototype</a><a href="lab.html">Simulation Lab</a><a href="../docs/16-evidence-provenance-v0.6.md">Evidence framework</a></div>
+<div class="eyebrow" style="margin-top:28px">Evidence & Uncertainty Lab · v0.6</div>
+<h1>What happened?<br>What can we actually claim?</h1>
+<p>Explore distinctions between activities, outputs, outcomes, unintended harms and untested assumptions. Follow each claim back to its source and any correction—without mistaking a computer-generated comparison for proof.</p>
+<div class="notice"><strong>Every record on this page is fictional.</strong> All sources and numbers were invented to test REGEN's reasoning and user experience. There are no real participants, scientific studies, external evaluations, or verified impacts here. Passing validation does not establish truth, consent or causation.</div>
+<div class="summary" id="stats" aria-label="Synthetic evidence statistics"></div>
+<section class="panel"><h2>Explore the synthetic evidence ledger</h2>
+<div class="filtergrid"><div><label for="domain">Quest area</label><select id="domain"><option value="all">All areas</option></select></div>
+<div><label for="kind">Record kind</label><select id="kind"><option value="all">All claim kinds</option></select></div>
+<div><label for="query">Search claims and limitations</label><input id="query" type="search" placeholder="Try: causal, consent, waste"></div></div>
+<p id="matches" role="status" aria-live="polite">Showing fictional claims.</p></section>
+<section class="grid" id="claims" aria-label="Fictional claim cards"></section>
+<section class="panel" id="detail" aria-labelledby="detailTitle" tabindex="-1">
+<h2 id="detailTitle">Inspect a claim</h2><p id="detailIntro">Select an example to inspect its provenance, interpretation, alternative explanations and revision history.</p>
+<div id="details"></div></section>
+<section class="panel"><h2>How this differs from proof</h2><div class="grid">
+<div><h3>Activity</h3><p>Someone records that an action happened. A self-report cannot establish quality, legality, safety or its effects.</p></div>
+<div><h3>Output</h3><p>An artifact or service is produced. Its existence does not establish who benefited or whether it worked.</p></div>
+<div><h3>Outcome</h3><p>A condition changes. Measurement design, confounders, comparison groups, uncertainty and harms still matter.</p></div>
+<div><h3>Accountability</h3><p>Correction, withdrawal and independent challenge must remain possible. A publication badge is not purchased praise.</p></div>
+</div></section>
+<footer class="footer">REGEN development-only evidence lab · No data collection, no external requests, no impact certification · <a href="../README.md">Project source</a></footer>
+</main>
+<script src="evidence-engine.js"></script>
+<script>
+"use strict";
+const PACK=__EVIDENCE_DATA__;
+const E=window.REGENEvidence,$=id=>document.getElementById(id);
+E.validate(PACK);
+const sources=new Map(PACK.sources.map(s=>[s.id,s]));
+function node(tag,content,parent,cls){
+ const element=document.createElement(tag);
+ if(content!==undefined)element.textContent=String(content);
+ if(cls)element.className=cls;
+ if(parent)parent.appendChild(element);
+ return element;
+}
+function empty(el){while(el.firstChild)el.removeChild(el.firstChild);}
+const stats=E.summary(PACK);
+for(const [name,value] of [["Fictional claims",stats.fictional_claims],["Invented sources",stats.synthetic_sources],["Example corrections",stats.correction_events],["Verified real outcomes",stats.verified_outcomes]]){
+ const el=node("div",undefined,$("stats"),"stat");
+ node("strong",value,el);node("small",name,el);
+}
+for(const d of [...new Set(PACK.claims.map(c=>c.domain))].sort()){const o=node("option",d,$("domain"));o.value=d;}
+for(const k of [...new Set(PACK.claims.map(c=>c.claim_kind))].sort()){const o=node("option",k.replaceAll("_"," "),$("kind"));o.value=k;}
+function section(name,value,parent){
+ const div=node("div",undefined,parent,"detailrow");
+ node("strong",name,div);node("p",value||"Not provided",div);
+}
+function inspect(id){
+ const c=PACK.claims.find(x=>x.id===id);if(!c)return;
+ $("detailTitle").textContent=c.title;
+ $("detailIntro").textContent=c.publication_state==="withdrawn_synthetic"?
+  "Withdrawn fictional claim. It must not be used as an active conclusion.":"Illustrative only: this record remains unreviewed and unverified.";
+ const root=$("details");empty(root);
+ section("Stable ID and revision",c.id+" · revision "+c.revision,root);
+ section("Classification",c.domain+" / "+c.claim_kind.replaceAll("_"," ")+" / "+c.evidence_layer,root);
+ section("What the fictional record says",c.statement,root);
+ section("How the fictional example was constructed",c.method,root);
+ section("What it cannot establish",c.limitations,root);
+ section("Other possible explanations",c.alternative_explanations,root);
+ section("Review and permission","Not reviewed · Not verified · Causality not established · Fictional example only",root);
+ if(c.metric){
+  const m=E.metricIllustration(c.metric);
+  const p=node("div",undefined,root,"metric");
+  node("strong","Arithmetic on invented numbers only",p);
+  node("p","Invented baseline "+m.baseline+"; invented follow-up "+m.followup+
+  "; arithmetic difference "+m.change+" "+m.unit.replaceAll("_"," ")+
+  (m.percentage===null?"; percent change undefined (baseline 0)":("; arithmetic percent change "+m.percentage+"%"))+".",p);
+  node("p",m.disclosure,p);
+ }
+ const list=node("div",undefined,root,"detailrow");
+ node("strong","Synthetic source trace",list);
+ const ul=node("ul",undefined,list,"plainlist");
+ for(const id of c.source_ids){
+  const s=sources.get(id);
+  node("li",id+" · "+s.title+" · invented for testing · "+s.limitations,ul);
+ }
+ const events=PACK.events.filter(e=>e.claim_id===c.id);
+ const log=node("div",undefined,root,"detailrow");
+ node("strong","Correction or withdrawal history",log);
+ if(!events.length)node("p","No revision event in this fictional sample.",log);
+ else{
+  const list=node("ul",undefined,log,"plainlist");
+  for(const ev of events)node("li",ev.kind+" · revision "+ev.from_revision+" → "+ev.to_revision+" · "+ev.reason,list);
+ }
+ const linked=node("div",undefined,root,"detailrow");
+ node("strong","Related illustrative quests (not evidence of completion)",linked);
+ node("p",c.linked_quest_ids.join(", ")||"None",linked);
+ if(typeof root.focus==="function")$("detail").focus();
+}
+function render(){
+ const results=E.search(PACK,{domain:$("domain").value,kind:$("kind").value,query:$("query").value});
+ $("matches").textContent=results.length+" fictional example "+(results.length===1?"claim":"claims")+". No real-world verification.";
+ const root=$("claims");empty(root);
+ for(const c of results){
+  const card=node("article",undefined,root,"claim");
+  const tags=node("div",undefined,card,"tags");
+  node("span",c.domain,tags,"tag");
+  node("span",c.evidence_layer,tags,"tag");
+  if(c.publication_state==="withdrawn_synthetic")node("span","WITHDRAWN",tags,"tag withdrawn");
+  node("h3",c.title,card);
+  node("p",c.statement,card);
+  node("p","Not independently verified · invented example",card,"small");
+  const button=node("button","Inspect source & limits",card,"secondary");
+  button.type="button";button.addEventListener("click",()=>inspect(c.id));
+ }
+ if(!results.length)node("p","No fictional claims match. Try broadening the filters.",root);
+}
+for(const id of ["domain","kind","query"])$(id).addEventListener(id==="query"?"input":"change",render);
+render();inspect(PACK.claims[0].id);
+</script></body></html>
