@@ -1,11 +1,11 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "illustrative_only",
-  "description": "Fictional example quest library for REGEN offline concept demo. Completion does not imply verified outcomes.",
+  "description": "Illustrative, offline example quest pathways. Prerequisites are suggested learning sequences, never requirements to participate; a completion marker is self-report, not verified impact.",
   "quests": [
     {
       "id": "first-spark",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Find your first spark",
       "summary": "Choose one community challenge and one strength you bring.",
       "stage": 1,
@@ -30,11 +30,12 @@
       "evidence_level": "self_report",
       "next_quest_id": "neighborhood-assets",
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": []
     },
     {
       "id": "neighborhood-assets",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Spot three existing strengths",
       "summary": "Notice resources already helping a place function.",
       "stage": 1,
@@ -59,11 +60,14 @@
       "evidence_level": "self_report",
       "next_quest_id": "accessible-path",
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "first-spark"
+      ]
     },
     {
       "id": "skill-compass",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Explore a skill pathway",
       "summary": "Pick a skill you can practice without expensive equipment.",
       "stage": 1,
@@ -87,11 +91,12 @@
       "evidence_level": "self_report",
       "next_quest_id": "repair-first",
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": []
     },
     {
       "id": "repair-first",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Repair before replacing",
       "summary": "Investigate one safe repair or reuse opportunity.",
       "stage": 2,
@@ -116,11 +121,14 @@
       "evidence_level": "self_report",
       "next_quest_id": "shared-repair",
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "skill-compass"
+      ]
     },
     {
       "id": "food-systems-101",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Learn where food waste begins",
       "summary": "Identify one avoidable waste source without compromising food safety.",
       "stage": 2,
@@ -145,11 +153,12 @@
       "evidence_level": "self_report",
       "next_quest_id": "food-waste-baseline",
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": []
     },
     {
       "id": "accessible-path",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Notice an accessibility barrier",
       "summary": "Identify a friction point and propose a respectful improvement.",
       "stage": 2,
@@ -174,11 +183,14 @@
       "evidence_level": "self_report",
       "next_quest_id": "public-information",
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "neighborhood-assets"
+      ]
     },
     {
       "id": "food-waste-baseline",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Observe food waste respectfully",
       "summary": "Create a tiny, anonymous baseline with permission.",
       "stage": 2,
@@ -203,11 +215,14 @@
       "evidence_level": "self_report",
       "next_quest_id": "food-waste-pilot",
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "food-systems-101"
+      ]
     },
     {
       "id": "public-information",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Make a public resource easier to understand",
       "summary": "Summarize a verified resource in clear, neutral language.",
       "stage": 2,
@@ -232,11 +247,12 @@
       "evidence_level": "self_report",
       "next_quest_id": "public-meeting",
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": []
     },
     {
       "id": "shared-repair",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Host a consent-based repair exchange",
       "summary": "Create a small collaborative learning session.",
       "stage": 3,
@@ -261,11 +277,14 @@
       "evidence_level": "self_report",
       "next_quest_id": null,
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "repair-first"
+      ]
     },
     {
       "id": "food-waste-pilot",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Test a safe waste-prevention idea",
       "summary": "Try one reversible change with participating stakeholders.",
       "stage": 3,
@@ -290,11 +309,14 @@
       "evidence_level": "self_report",
       "next_quest_id": "bridge-compact",
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "food-waste-baseline"
+      ]
     },
     {
       "id": "public-meeting",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Translate a civic meeting into a learning note",
       "summary": "Help people follow a public decision without partisan framing.",
       "stage": 3,
@@ -319,11 +341,14 @@
       "evidence_level": "self_report",
       "next_quest_id": null,
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "public-information"
+      ]
     },
     {
       "id": "bridge-compact",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "title": "Sketch a voluntary change compact",
       "summary": "Draft accountable milestones for an institution that opts in.",
       "stage": 5,
@@ -349,7 +374,10 @@
       "evidence_level": "self_report",
       "next_quest_id": null,
       "atlas_refs": [],
-      "publication_status": "illustrative_only"
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "public-meeting"
+      ]
     }
   ]
 }
