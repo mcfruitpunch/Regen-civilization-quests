@@ -18,6 +18,7 @@ jobs:
       - run: python -m unittest discover -s tests -p 'test_quest_approval.py'
       - run: node --check web/quest-engine.js
       - run: node --check web/quest-authoring.js
+      - run: node --check web/quest-review.js
       - run: node --test tests/*.test.cjs
       - run: python tests/build_prototype.py
       - run: git diff --exit-code -- web/index.html
@@ -36,11 +37,13 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
-          html=Path('web/creator.html').read_text()
-          js=re.findall(r'<script(?: [^>]*)?>(.*?)</script>',html,re.S)
-          assert len(js)==2 and 'quest-authoring.js' in html
-          assert 'fetch(' not in html and 'XMLHttpRequest' not in html
-          assert 'localStorage' not in html and 'sessionStorage' not in html
-          Path('/tmp/regen-creator.js').write_text(js[-1])
+          for name,expected in [('creator',2),('reviewer',3)]:
+            html=Path(f'web/{name}.html').read_text()
+            js=re.findall(r'<script(?: [^>]*)?>(.*?)</script>',html,re.S)
+            assert len(js)==expected and 'quest-authoring.js' in html
+            assert 'fetch(' not in html and 'XMLHttpRequest' not in html
+            assert 'localStorage' not in html and 'sessionStorage' not in html
+            Path(f'/tmp/regen-{name}.js').write_text(js[-1])
           PY
           node --check /tmp/regen-creator.js
+          node --check /tmp/regen-reviewer.js
