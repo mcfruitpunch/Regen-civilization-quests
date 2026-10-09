@@ -1,0 +1,128 @@
+{
+  "version": "0.4.0",
+  "status": "illustrative_curated_curriculum",
+  "disclaimer": "Pathways are optional learning sequences, not public missions, eligibility checks or validated community priorities.",
+  "pathways": [
+    {
+      "id": "ecology-literacy",
+      "name": "Understand living systems",
+      "focus": "ecological learning",
+      "quest_ids": [
+        "water-journey",
+        "habitat-observation",
+        "habitat-concept"
+      ],
+      "learning_goal": "Explore watersheds and ecological relationships before designing habitat concepts.",
+      "non_goal": "No planting, wildlife intervention or land modification is authorized."
+    },
+    {
+      "id": "accessible-participation",
+      "name": "Build for different ways of participating",
+      "focus": "accessibility and care",
+      "quest_ids": [
+        "access-perspective",
+        "clear-instructions",
+        "access-workshop-sim"
+      ],
+      "learning_goal": "Practice inclusive design without diagnosing or speaking for others.",
+      "non_goal": "A simulated workshop does not establish community consent or accessibility compliance."
+    },
+    {
+      "id": "circular-materials",
+      "name": "Keep useful materials in circulation",
+      "focus": "repair and reuse",
+      "quest_ids": [
+        "object-life-story",
+        "reuse-choice-grid",
+        "sharing-station-blueprint"
+      ],
+      "learning_goal": "Compare repair/reuse options and design a safe fictional sharing system.",
+      "non_goal": "No hazardous repairs, unauthorized lending or claims of lifecycle impact."
+    },
+    {
+      "id": "food-systems-literacy",
+      "name": "Waste prevention without compromising safety",
+      "focus": "food literacy",
+      "quest_ids": [
+        "food-date-language",
+        "food-storage-map",
+        "food-pilot-simulation"
+      ],
+      "learning_goal": "Learn food safety constraints and calculate an explicitly fictional baseline.",
+      "non_goal": "No food service changes, donation decisions, or measured real-world waste prevention."
+    },
+    {
+      "id": "civic-source-literacy",
+      "name": "Understand public decisions",
+      "focus": "civic literacy",
+      "quest_ids": [
+        "civic-path",
+        "public-budget-literacy",
+        "service-access-guide"
+      ],
+      "learning_goal": "Read official sources and prepare neutral, accessible public-service guides.",
+      "non_goal": "No official endorsement, targeted persuasion or corruption allegations."
+    },
+    {
+      "id": "accountable-transformation",
+      "name": "Improve systems, not enemies",
+      "focus": "accountability and institutional reform",
+      "quest_ids": [
+        "first-spark",
+        "systems-incentives",
+        "institutional-choice-grid",
+        "accountability-compact-model"
+      ],
+      "learning_goal": "Compare voluntary change, oversight and lawful alternatives using fictional institutions.",
+      "non_goal": "No covert infiltration, pressure campaigns, institutional certification, or real-world compact."
+    },
+    {
+      "id": "community-strengths",
+      "name": "Begin where strengths already exist",
+      "focus": "community discovery",
+      "quest_ids": [
+        "first-spark",
+        "neighborhood-assets",
+        "accessible-path"
+      ],
+      "learning_goal": "Notice existing supports and prepare respectful accessibility ideas.",
+      "non_goal": "Do not assess or identify individual residents or claim representation."
+    },
+    {
+      "id": "safe-repair-intro",
+      "name": "Learn repair through safer decisions",
+      "focus": "hands-on learning",
+      "quest_ids": [
+        "skill-compass",
+        "repair-first",
+        "shared-repair"
+      ],
+      "learning_goal": "Explore safer repair decisions and consent-based group planning.",
+      "non_goal": "No high-risk repairs or group events without actual safety capacity."
+    },
+    {
+      "id": "food-pilot-readiness",
+      "name": "Plan evidence before acting",
+      "focus": "measurement basics",
+      "quest_ids": [
+        "food-systems-101",
+        "food-waste-baseline",
+        "food-waste-pilot"
+      ],
+      "learning_goal": "Understand consent, baseline measurement, and burdens on workers.",
+      "non_goal": "No workplace data collection without independent consent and site approval."
+    },
+    {
+      "id": "public-process-transparency",
+      "name": "Make civic processes understandable",
+      "focus": "civic communication",
+      "quest_ids": [
+        "public-information",
+        "public-meeting",
+        "bridge-compact"
+      ],
+      "learning_goal": "Create accurate summaries and practice non-deceptive accountability language.",
+      "non_goal": "No political profiling or unsolicited influence directed at named individuals."
+    }
+  ]
+}
