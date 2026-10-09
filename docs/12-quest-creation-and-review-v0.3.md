@@ -16,9 +16,12 @@ REGEN v0.3 intentionally stops before a live approval step, because no trusted r
 4. Select **Check my draft**. Structural errors are reported; affirmative risk flags are highlighted for specialist review.
 5. Select **Export JSON draft** to save the record locally. Nothing automatically uploads or contacts any server.
 6. Review a locally saved JSON file with `python scripts/screen_quest.py my-draft.json --json`.
-7. An authorized maintainer may consider a **sanitized** proposal in a private review process or GitHub pull request. Never post sensitive participant data publicly.
+7. Open `web/reviewer.html` and load a local draft to inspect the authored review answers and record **request changes**, **reject**, or **refer to future authorized human review**. Exported worksheet notes are **not identity-verified approvals**.
+8. An authorized maintainer may consider a **sanitized** proposal in a private review process or GitHub pull request. Never post sensitive participant data publicly.
 
 A sample draft lives at `proposals/example-reusable-bag.json`. All committed proposals must remain `publication_status: "draft"`. JSON-schema validation, risk triage, and a release fail-closed check run in GitHub Actions.
+
+The optional local reviewer worksheet (`web/reviewer.html`, `web/quest-review.js`) never contains an **approve** action. Even a fully assessed worksheet is explicitly `authorized_approval: false` and `permission_to_publish: false`. Neither a browser note nor an exported file verifies a person's role, independence, expertise or content-version signature.
 
 ## Governance workflow (proposed, not enabled)
 
