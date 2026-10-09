@@ -1,0 +1,51 @@
+{
+  "record_type": "regen_quest_proposal",
+  "id": "reusable-bag-inventory",
+  "version": "0.3.0",
+  "title": "Explore a reusable bag option",
+  "summary": "Plan a small, reversible personal habit that could reduce disposable bags.",
+  "stage": 1,
+  "domain": "Learning",
+  "kind": "learn",
+  "estimated_minutes": 20,
+  "setting": "home",
+  "skills": [
+    "Ecological Restoration",
+    "Systems Thinking"
+  ],
+  "objective": "An informed private plan that respects access, food safety, and local regulations.",
+  "steps": [
+    "Review available bag reuse and cleaning guidance from a reliable source.",
+    "Identify an accessible low-cost option you could personally test.",
+    "Reflect on whether this option might cause inconvenience, waste, or accessibility barriers."
+  ],
+  "reflection_prompt": "Which conditions would make this change unreasonable or ineffective?",
+  "accessibility_alternative": "Research online or ask a trusted friend to help compare options; no purchase required.",
+  "consent_requirement": "Only investigate your own habits; do not request information about others.",
+  "safety_notes": "Avoid claims about health and material life cycles without evidence; do not contact or pressure strangers.",
+  "next_quest_id": null,
+  "atlas_refs": [],
+  "evidence_level": "self_report",
+  "publication_status": "draft",
+  "review": {
+    "community_need": "Some households are curious whether reusable alternatives are practical and affordable in their circumstances.",
+    "affected_people": "Only the participant is directly involved; family or others are not asked to participate.",
+    "potential_harms": "Costs, cleaning demands and disability-related access barriers could make reuse less practical.",
+    "mitigation_plan": "Keep the activity voluntary, free to complete, and limited to research with no obligation to buy.",
+    "permissions_plan": "No third-party access or special authorization is necessary for a private research-only draft.",
+    "accessibility_plan": "Provide remote, audio or assistance-based alternatives and avoid requiring a purchase or travel.",
+    "impact_measure": "Measure whether a participant identifies a feasible option; make no claims that waste was reduced.",
+    "stop_conditions": "Stop if the idea requires unsafe cleaning, spending money, or pressure on other people.",
+    "data_handling": "Do not collect names, contact details, photographs or private household records.",
+    "accountability_route": "Invite correction through a safe maintainer review; do not publish claims about anyone.",
+    "risk_flags": {
+      "physical_hazard": false,
+      "regulated_activity": false,
+      "workplace_or_institution": false,
+      "children_or_vulnerable_people": false,
+      "sensitive_information": false,
+      "public_targeting": false,
+      "coercion_or_dependency": false
+    }
+  }
+}
