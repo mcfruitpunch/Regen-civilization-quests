@@ -22,7 +22,7 @@ A separate single-file HTML preview is available alongside the repository ZIP.
 
 ## Create a draft quest (v0.3)
 
-Open [`web/creator.html`](web/creator.html) to write a quest proposal locally, complete explicit safety/consent/risk answers, run advisory checks, and **export a JSON draft**. No login, network submission, server, or automatic review is involved. See [`docs/12-quest-creation-and-review-v0.3.md`](docs/12-quest-creation-and-review-v0.3.md). **Passing automated checks is never approval to publish or execute a real-world mission.** This is not yet an operational public submission service.
+Open [`web/creator.html`](web/creator.html) to write a quest proposal locally, complete explicit safety/consent/risk answers, run advisory checks, and **export a JSON draft**. A companion [`web/reviewer.html`](web/reviewer.html) lets someone inspect a locally exported draft and record **non-authoritative** feedback or referrals. No login, network submission, server, or automatic review is involved. See [`docs/12-quest-creation-and-review-v0.3.md`](docs/12-quest-creation-and-review-v0.3.md). **Passing automated checks is never approval to publish or execute a real-world mission.** This is not yet an operational public submission service.
 
 Use `python scripts/screen_quest.py` to validate checked-in drafts and prevent non-illustrative content from being released into the prototype. Run `node --test tests/*.test.cjs` to test both pathway and creation logic. Public issues should never contain private evidence or identifying details.
 
