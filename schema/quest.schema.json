@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/regen/quest.schema.json",
-  "title": "REGEN illustrative quest (v0.1)",
-  "description": "A content contract, not approval to deploy a quest in the real world.",
+  "title": "REGEN quest prototype content contract v0.2",
+  "description": "Illustrative-only v0.2 demo. All prerequisite sequences are advisory; published quests require separate human approval.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -25,7 +25,8 @@
     "evidence_level",
     "next_quest_id",
     "atlas_refs",
-    "publication_status"
+    "publication_status",
+    "prerequisite_ids"
   ],
   "properties": {
     "id": {
@@ -150,6 +151,14 @@
         "approved",
         "retired"
       ]
+    },
+    "prerequisite_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      }
     }
   }
 }

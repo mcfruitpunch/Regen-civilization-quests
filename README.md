@@ -1,6 +1,6 @@
 # REGEN — Civilization Quest System
 
-**Version:** 0.1 foundation · **Status:** concept + offline interactive prototype · **Date:** 2026-10-09
+**Version:** 0.2 development branch · **Status:** concept + offline interactive prototype · **Date:** 2026-10-09
 
 > Turn the work of building regenerative communities into an approachable, cooperative, real-world quest system.
 
@@ -16,7 +16,7 @@ REGEN is a proposal for an opt-in, game-inspired participation layer over a **Re
 
 ## Open the prototype
 
-Open [`index.html`](index.html) (or [`web/index.html`](web/index.html) directly) in a browser. No installation, account, server, internet, GPS, or API key required. It contains 12 example quests, basic filters, skill areas, a quest detail view, and local-only completion tracking. The quest completion record is **self-reported**, not verified impact.
+Open [`index.html`](index.html) (or [`web/index.html`](web/index.html) directly) in a browser. No installation, account, server, internet, GPS, or API key required. It contains 12 example quests, basic filters, skill areas, a quest detail view, local-only completion tracking, and a new **My pathway** view showing explainable, advisory sequences. Open any quest regardless of prerequisite markers; prior participation is not required to access the content. The quest completion record is **self-reported**, not verified impact.
 
 A separate single-file HTML preview is available alongside the repository ZIP.
 
@@ -32,10 +32,12 @@ A separate single-file HTML preview is available alongside the repository ZIP.
 | [`docs/05-roadmap.md`](docs/05-roadmap.md) | Pilot and release criteria |
 | [`docs/06-architecture.md`](docs/06-architecture.md) | Modular technical architecture and Atlas integration |
 | [`docs/07-decisions-and-research.md`](docs/07-decisions-and-research.md) | Assumptions, experiments, and unresolved decisions |
+| [`docs/10-quest-engine-v0.2.md`](docs/10-quest-engine-v0.2.md) | Deterministic pathway engine, filters, limits and tests |
+| [`docs/11-license-governance-options.md`](docs/11-license-governance-options.md) | Unapproved licensing choices and anti-capture governance proposal |
 
-Quest examples are in [`data/quests.json`](data/quests.json), contract in [`schema/quest.schema.json`](schema/quest.schema.json). 
+Quest examples are in [`data/quests.json`](data/quests.json), contract in [`schema/quest.schema.json`](schema/quest.schema.json), and explainable progression logic in [`web/quest-engine.js`](web/quest-engine.js). Recommendations do not certify a person's abilities or the impact of their work. 
 
-## Not in scope at v0.1
+## Not in scope at v0.2
 
 - No social network, public profiles, global leaderboard, or reputational ranking.
 - No collection of participant location or identity and no uploading evidence.
@@ -49,7 +51,7 @@ Quest examples are in [`data/quests.json`](data/quests.json), contract in [`sche
 1. Run a small, opt-in pilot with a community group and pick **one** testable outcome (e.g. food waste prevented in a consenting venue).
 2. Co-design the quest safety and verification process with those affected.
 3. Decide the software/content license and adopt contribution, safety, and governance policies before public release.
-4. Complete initial import and verify GitHub Actions; core schema/build checks are included, but accessibility checks require further work.
+4. Review the v0.2 pull request and verify GitHub Actions checks; accessibility checks require further work.
 5. Later connect Atlas nodes to quest pathways through a versioned, human-reviewed interface.
 
 This is an **early design**, not a validated social intervention. Preserve dignity and agency; measure benefits and unintended harms, not just participation.
