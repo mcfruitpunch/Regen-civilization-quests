@@ -21,13 +21,17 @@ jobs:
       - run: node --check web/quest-review.js
       - run: node --check web/simulation-engine.js
       - run: node --check web/progress-vault.js
+      - run: node --check web/evidence-engine.js
       - run: node --test tests/*.test.cjs
       - run: python tests/build_prototype.py
       - run: python tests/build_lab.py
       - run: python scripts/check_atlas_links.py
       - run: python -m unittest discover -s tests -p 'test_atlas_boundary.py'
       - run: python -m unittest discover -s tests -p 'test_progress_backup.py'
-      - run: git diff --exit-code -- web/index.html web/lab.html
+      - run: python scripts/check_evidence.py
+      - run: python -m unittest discover -s tests -p 'test_evidence.py'
+      - run: python tests/build_evidence.py
+      - run: git diff --exit-code -- web/index.html web/lab.html web/evidence.html
       - name: Check JS syntax
         run: |
           python - <<'PY'
@@ -68,3 +72,17 @@ jobs:
           PY
           node --check /tmp/regen-lab.js
 
+      - name: Check evidence explorer script and no data exfiltration
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html=Path('web/evidence.html').read_text()
+          scripts=re.findall(r'<script(?: [^>]*)?>(.*?)</script>',html,re.S)
+          assert len(scripts)==2 and 'evidence-engine.js' in html
+          assert 'fetch(' not in html and 'XMLHttpRequest' not in html
+          assert 'localStorage' not in html and 'sessionStorage' not in html
+          assert 'Every record on this page is fictional' in html
+          Path('/tmp/regen-evidence.js').write_text(scripts[-1])
+          PY
+          node --check /tmp/regen-evidence.js
