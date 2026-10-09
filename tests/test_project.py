@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parents[1]
 pack=json.loads((ROOT/'data/quests.json').read_text())
 schema=json.loads((ROOT/'schema/quest.schema.json').read_text())
 quests=pack['quests']
-assert len(quests)==12, 'Expected 12 illustrative quest examples'
+assert len(quests)==30, 'Expected 30 illustrative learning quests'
 ids=[q['id'] for q in quests]
 assert len(set(ids))==len(ids), 'Quest IDs must be unique'
 allowed_skills={
