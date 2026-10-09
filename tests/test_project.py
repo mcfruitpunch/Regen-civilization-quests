@@ -15,6 +15,9 @@ allowed_skills={
 'Creative Expression','Education & Research','Regenerative Enterprise','Systems Thinking'}
 for q in quests:
     jsonschema.validate(q,schema)
+    assert isinstance(q['prerequisite_ids'],list)
+    assert len(set(q['prerequisite_ids'])) == len(q['prerequisite_ids'])
+    assert all(pre in ids and pre != q['id'] for pre in q['prerequisite_ids'])
     assert set(q['skills']) <= allowed_skills, f"Unexpected skill in {q['id']}"
     assert q['next_quest_id'] is None or q['next_quest_id'] in ids
     assert q['publication_status']=='illustrative_only'
@@ -24,6 +27,10 @@ html=(ROOT/'web/index.html').read_text(encoding='utf-8')
 assert '__QUEST_DATA__' not in html
 assert 'const QUESTPACK = ' in html
 assert html.count('<script>')==1
+assert '<script src="quest-engine.js"></script>' in html
+assert 'id="journey"' in html
+assert 'id="pathRecommendations"' in html
+assert 'renderJourney()' in html
 assert 'No account' in html
 assert 'covert infiltration' in html
 assert 'Self-reported' in html
