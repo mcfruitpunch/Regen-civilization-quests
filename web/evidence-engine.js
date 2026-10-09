@@ -46,9 +46,9 @@
    if(e.kind==="withdrawal"&&c.publication_state!=="withdrawn_synthetic")throw Error("Withdrawal not enforced");
   }
   for(const c of pack.claims){
-   if(c.revision>1&&!transitioned.has(c.id+":"+c.revision))throw Error("Correction record missing");
    if(c.publication_state==="withdrawn_synthetic"&&!pack.events.some(e=>e.claim_id===c.id&&e.kind==="withdrawal"))throw Error("Withdrawal event missing");
    if(c.publication_state==="synthetic_only"&&pack.events.some(e=>e.claim_id===c.id&&e.kind==="withdrawal"))throw Error("Withdrawn claim presented as active");
+   if(c.revision>1&&!transitioned.has(c.id+":"+c.revision))throw Error("Correction record missing");
   }
   return true;
  }
