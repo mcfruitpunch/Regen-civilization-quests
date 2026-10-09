@@ -15,6 +15,8 @@ function boot(){
   focus(){this.focused=true;}
  }
  const document={getElementById(id){if(!elements.has(id))elements.set(id,new Element(id));return elements.get(id);},createElement(tag){return new Element(tag);}};
+ // In a real browser, an <input type="search"> starts empty, unlike our select controls.
+ document.getElementById("query").value="";
  const ctx={document,console};
  ctx.window=ctx;
  vm.createContext(ctx);
