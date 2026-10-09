@@ -18,7 +18,7 @@ function buildDraft(raw){
  const value=(key)=>String(raw[key]??"").trim();
  const review={};
  for(const k of REVIEW_FIELDS)review[k]=value(k);
- review.risk_flags=Object.fromEntries(FLAGS.map(k=>[k,raw[k]===true]));
+ review.risk_flags=Object.fromEntries(FLAGS.map(k=>[k,typeof raw[k]==='boolean'?raw[k]:null]));
  return {
   record_type:"regen_quest_proposal",
   id:slug(value("id")||value("title")),version:"0.3.0",
