@@ -33,6 +33,7 @@ A separate single-file HTML preview is available alongside the repository ZIP.
 | [`docs/06-architecture.md`](docs/06-architecture.md) | Modular technical architecture and Atlas integration |
 | [`docs/07-decisions-and-research.md`](docs/07-decisions-and-research.md) | Assumptions, experiments, and unresolved decisions |
 | [`docs/10-quest-engine-v0.2.md`](docs/10-quest-engine-v0.2.md) | Deterministic pathway engine, filters, limits and tests |
+| [`docs/11-license-governance-options.md`](docs/11-license-governance-options.md) | Unapproved licensing choices and anti-capture governance proposal |
 
 Quest examples are in [`data/quests.json`](data/quests.json), contract in [`schema/quest.schema.json`](schema/quest.schema.json), and explainable progression logic in [`web/quest-engine.js`](web/quest-engine.js). Recommendations do not certify a person's abilities or the impact of their work. 
 
