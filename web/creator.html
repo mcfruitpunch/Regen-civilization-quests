@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>REGEN / Quest Creator v0.3</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1610;--surface:#12291d;--surface2:#1a3526;--line:#355544;--text:#f1faee;--soft:#c3d6c7;--mint:#b6ee99;--coral:#ffc5ae}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 0,#244b35,transparent 42%),var(--bg);color:var(--text);font:16px/1.5 system-ui,sans-serif}
+main{width:min(920px,calc(100% - 28px));margin:32px auto 96px}header{border-bottom:1px solid var(--line);padding-bottom:18px}a{color:var(--mint)}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;color:var(--mint);font-weight:800}h1{font-size:clamp(2rem,5vw,3.7rem);line-height:1.1;margin:10px 0}h2{font-size:1.3rem;margin:0 0 10px}p{color:var(--soft)}.notice{background:var(--surface2);border-left:4px solid var(--mint);padding:16px;border-radius:9px;margin:22px 0}.notice strong{color:var(--text)}fieldset{margin:22px 0;padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--surface)}legend{font-weight:800;padding:0 10px;font-size:1.16rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}label{display:block;font-weight:600;font-size:.93rem;margin:14px 0 4px}input,select,textarea,button{font:inherit}input,select,textarea{width:100%;background:#0a1d13;border:1px solid #537361;border-radius:9px;color:var(--text);padding:11px}textarea{min-height:90px;resize:vertical}input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--mint);outline-offset:3px}small{display:block;color:var(--soft);margin-top:4px}.checkgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.checkgrid label{font-weight:500;border:1px solid var(--line);background:#102319;border-radius:10px;padding:10px;margin:3px}.checkgrid input{width:auto;vertical-align:middle;margin-right:9px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin:25px 0}button{background:var(--mint);border:none;color:#102015;border-radius:10px;font-weight:800;padding:12px 19px;cursor:pointer}button.secondary{border:1px solid #668674;background:transparent;color:var(--text)}button:disabled{opacity:.45;cursor:not-allowed}#result{border:1px solid var(--line);border-radius:14px;padding:18px;background:#10261a;min-height:72px}#result ul{padding-left:22px}#result li{margin:4px 0}.error{color:var(--coral)}.safe{color:var(--mint)}.footer{margin-top:40px;border-top:1px solid var(--line);padding-top:20px}.sr-only{position:absolute;left:-10000px}#fileLoad{max-width:280px}.risk-row{margin:14px 0;padding:10px;border:1px solid var(--line);border-radius:10px}.risk-row label{display:inline-block;width:min(65%,480px);margin:0}.risk-row select{width:180px;max-width:100%}@media(max-width:620px){.grid,.checkgrid{grid-template-columns:1fr}fieldset{padding:15px}.risk-row label{display:block;width:auto;margin-bottom:6px}.risk-row select{width:100%}}
+</style>
+</head>
+<body><main>
+<header><a href="index.html">← REGEN quest pathways</a><div class="eyebrow" style="margin-top:20px">Creation Studio / v0.3 · Local sandbox</div><h1>Design a quest people can choose.</h1><p>Make an accessible first step. Invite people to improve their communities without pressure, hidden targeting, or exaggerated impact claims.</p></header>
+<div class="notice"><strong>This creator is offline and private to your browser tab.</strong> Nothing is submitted to REGEN or GitHub. Export saves a JSON draft onto your own device. Do not enter names, private stories, workplace documents, contact details, or sensitive allegations. A completed form is <strong>not</strong> an approved mission.</div>
+<form id="creator" novalidate>
+<fieldset><legend>1. The idea</legend>
+<div class="grid"><div><label for="title">Quest name</label><input id="title" maxlength="100" required placeholder="Explore a reusable bag option"></div><div><label for="id">Quest ID (optional)</label><input id="id" placeholder="auto-generated-from-title"><small>Lowercase letters, digits and hyphens.</small></div></div>
+<label for="summary">One-sentence purpose</label><textarea id="summary" required placeholder="What is the small and useful outcome?"></textarea>
+<div class="grid"><div><label for="domain">Quest area</label><select id="domain" required></select></div><div><label for="kind">Type of activity</label><select id="kind" required></select></div><div><label for="stage">Scope</label><select id="stage"><option value="1">1 · Beginner</option><option value="2">2 · Individual</option><option value="3">3 · Team</option><option value="4">4 · Neighborhood</option><option value="5">5 · Institutional</option><option value="6">6 · Regional</option><option value="7">7 · Global</option></select></div><div><label for="estimated_minutes">Estimated minutes</label><input id="estimated_minutes" type="number" min="1" max="10080" value="20" required></div><div><label for="setting">Participation setting</label><select id="setting" required></select></div></div>
+<h2 style="margin-top:23px">What skills could it practice?</h2><div class="checkgrid" id="skills"></div>
+<label for="objective">An achievable result (not a guaranteed impact)</label><textarea id="objective" required></textarea></fieldset>
+<fieldset><legend>2. What does the participant do?</legend>
+<p>Write two to eight steps. Keep them specific, voluntary, and small enough for someone to try without special resources.</p>
+<div id="steps">
+<label for="step1">Step 1</label><textarea id="step1" class="step"></textarea>
+<label for="step2">Step 2</label><textarea id="step2" class="step"></textarea>
+<label for="step3">Step 3 (optional)</label><textarea id="step3" class="step"></textarea>
+<label for="step4">Step 4 (optional)</label><textarea id="step4" class="step"></textarea>
+</div>
+<label for="reflection_prompt">Reflection prompt</label><textarea id="reflection_prompt"></textarea>
+<label for="accessibility_alternative">Equivalent accessible / low-resource option</label><textarea id="accessibility_alternative"></textarea>
+<label for="consent_requirement">What permission is needed?</label><textarea id="consent_requirement"></textarea>
+<label for="safety_notes">Immediate safety boundaries</label><textarea id="safety_notes"></textarea></fieldset>
+<fieldset><legend>3. Community review questions</legend><p>These answers must be considered by independent human reviewers. “No risk” is not an acceptable substitute for thinking about the people affected.</p>
+<div id="reviewFields"></div>
+<h2 style="margin-top:24px">Potential high-risk dimensions</h2>
+<p>Answer every question. “Unsure” intentionally blocks a complete screening so reviewers can help you clarify.</p>
+<div id="riskFields"></div></fieldset>
+<div class="actions">
+<button type="button" id="check">Check my draft</button><button type="button" class="secondary" id="export" disabled>Export JSON draft</button>
+</div>
+<div id="result" role="status" aria-live="polite"><p>Complete the form, then choose “Check my draft”.</p></div>
+<div class="actions"><label for="fileLoad">Continue editing a local JSON draft:</label><input type="file" id="fileLoad" accept=".json,application/json"></div>
+</form><div class="footer"><p><a href="reviewer.html">Open the local reviewer workbench ↗</a></p><p><strong>Review handoff:</strong> A downloaded draft may be discussed with an authorized maintainer through the repository's documented process. Never publish sensitive material in GitHub issues. No reviewer identity or publication authority is established in this browser.</p><a href="../README.md">Project framework</a></div>
+</main>
+<script src="quest-authoring.js"></script>
+<script>
+"use strict";
+const A=window.REGENAuthoring;
+const $=id=>document.getElementById(id);
+const labels={
+ community_need:"What community-identified need does this address?",
+ affected_people:"Who benefits or may be affected?",
+ potential_harms:"What could go wrong or shift burdens onto others?",
+ mitigation_plan:"How would harm be prevented or reduced?",
+ permissions_plan:"Whose permission is necessary?",
+ accessibility_plan:"How can people participate in different ways?",
+ impact_measure:"What would be measured and what cannot be concluded?",
+ stop_conditions:"When should the activity stop?",
+ data_handling:"What data is needed, retained, or avoided?",
+ accountability_route:"How can affected people challenge or correct this idea?"
+};
+const flags={
+ physical_hazard:"Could a participant encounter physical hazards?",
+ regulated_activity:"Could the activity involve regulated or licensed work?",
+ workplace_or_institution:"Does it involve workplaces or institutions?",
+ children_or_vulnerable_people:"Could children or especially vulnerable people be involved?",
+ sensitive_information:"Could sensitive or identifying data be gathered?",
+ public_targeting:"Could it direct contact toward specific people or political positions?",
+ coercion_or_dependency:"Could people feel pressured or dependent on participation?"
+};
+function options(select,values){for(const text of values){const o=document.createElement("option");o.value=text;o.textContent=text;select.append(o);}}
+options($("domain"),A.DOMAINS);options($("kind"),A.KINDS);options($("setting"),A.SETTINGS);
+for(const skill of A.SKILLS){
+ const label=document.createElement("label"),input=document.createElement("input");
+ input.type="checkbox";input.name="skills";input.value=skill;label.append(input,document.createTextNode(skill));$("skills").append(label);
+}
+for(const [key,title] of Object.entries(labels)){
+ const label=document.createElement("label"),area=document.createElement("textarea");
+ label.htmlFor=key;label.textContent=title;area.id=key;area.maxLength=2000;$("reviewFields").append(label,area);
+}
+for(const [key,title] of Object.entries(flags)){
+ const row=document.createElement("div"),label=document.createElement("label"),sel=document.createElement("select");
+ row.className="risk-row";label.textContent=title;label.htmlFor="risk-"+key;sel.id="risk-"+key;
+ for(const [v,name] of [["","Unsure — needs clarification"],["yes","Yes"],["no","No"]]){const o=document.createElement("option");o.value=v;o.textContent=name;sel.append(o);}
+ row.append(label,sel);$("riskFields").append(row);
+}
+function readForm(){
+ const raw={};
+ for(const id of ["title","id","summary","domain","kind","stage","estimated_minutes","setting","objective","reflection_prompt","accessibility_alternative","consent_requirement","safety_notes",...A.REVIEW_FIELDS])raw[id]=$(id).value;
+ raw.skills=[...document.querySelectorAll("input[name=skills]:checked")].map(x=>x.value);
+ raw.steps=[...document.querySelectorAll(".step")].map(x=>x.value);
+ for(const f of A.FLAGS){const v=$("risk-"+f).value;raw[f]=v==="yes"?true:v==="no"?false:null;}
+ return raw;
+}
+let validDraft=null;
+function report(){
+ const draft=A.buildDraft(readForm()),result=A.screen(draft);
+ validDraft=result.structurally_complete?draft:null;
+ $("export").disabled=!validDraft;
+ const root=$("result");root.replaceChildren();
+ const heading=document.createElement("strong");
+ heading.className=result.structurally_complete?"safe":"error";
+ heading.textContent=result.structurally_complete?"Structurally complete — NOT approved":"Draft needs more information";
+ root.append(heading);
+ const all=[...result.errors,...result.warnings];
+ const ul=document.createElement("ul");
+ for(const msg of all){const li=document.createElement("li");li.textContent=msg;ul.append(li);}
+ root.append(ul);
+ const note=document.createElement("p");
+ note.textContent="Approval and live publication are not available from this form. Review requires authorized people, explicit consent, and governance.";
+ root.append(note);
+}
+$("check").addEventListener("click",report);
+$("creator").addEventListener("input",()=>{validDraft=null;$("export").disabled=true;});
+$("creator").addEventListener("change",()=>{validDraft=null;$("export").disabled=true;});
+$("export").addEventListener("click",()=>{
+ if(!validDraft)return;
+ const content=JSON.stringify(validDraft,null,2)+"\n",url=URL.createObjectURL(new Blob([content],{type:"application/json"}));
+ const a=document.createElement("a");a.href=url;a.download="regen-proposal-"+validDraft.id+".json";a.click();URL.revokeObjectURL(url);
+});
+$("fileLoad").addEventListener("change",async e=>{
+ const file=e.target.files?.[0];if(!file)return;
+ const output=$("result");try{
+  if(file.size>100000){throw new Error("File too large; choose a small REGEN JSON draft.");}
+  const record=JSON.parse(await file.text());
+  if(record.record_type!=="regen_quest_proposal"||record.publication_status!=="draft")throw new Error("Only REGEN draft proposals can be imported.");
+  for(const id of ["title","id","summary","domain","kind","stage","estimated_minutes","setting","objective","reflection_prompt","accessibility_alternative","consent_requirement","safety_notes"]){$(id).value=record[id]??"";}
+  for(let i=1;i<=4;i++)$("step"+i).value=record.steps?.[i-1]??"";
+  for(const f of A.REVIEW_FIELDS)$(f).value=record.review?.[f]??"";
+  for(const f of A.FLAGS)$("risk-"+f).value=record.review?.risk_flags?.[f]===true?"yes":record.review?.risk_flags?.[f]===false?"no":"";
+  for(const c of document.querySelectorAll("input[name=skills]"))c.checked=Array.isArray(record.skills)&&record.skills.includes(c.value);
+  report();output.scrollIntoView({behavior:"smooth",block:"center"});
+ }catch(err){validDraft=null;$("export").disabled=true;output.textContent="Could not open the draft: "+err.message;}
+ e.target.value="";
+});
+</script>
+</body></html>

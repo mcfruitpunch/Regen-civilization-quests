@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>REGEN / Review Workbench</title><style>
+:root{color-scheme:dark;--bg:#0a1610;--panel:#12291e;--line:#355745;--text:#f4f9f1;--soft:#c4d9cb;--green:#b4efa2;--warn:#ffd0bb}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(125deg,#102b1e,var(--bg) 70%);font:16px/1.5 system-ui,sans-serif;color:var(--text)}main{width:min(890px,calc(100% - 30px));margin:30px auto 90px}h1{font-size:clamp(2rem,5vw,3.4rem)}a{color:var(--green)}p,li{color:var(--soft)}section{background:var(--panel);border:1px solid var(--line);padding:24px;border-radius:16px;margin:18px 0}button,select,textarea,input{font:inherit}button{padding:12px 18px;border-radius:9px;background:var(--green);color:#102218;border:0;font-weight:800;cursor:pointer}button:disabled{opacity:.4;cursor:not-allowed}input[type=file]{width:100%}label{display:block;font-weight:650;margin:14px 0 6px}select,textarea{width:100%;padding:11px;background:#091b11;border:1px solid #648171;border-radius:9px;color:var(--text)}textarea{min-height:110px}a:focus-visible,button:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--green);outline-offset:3px}.notice{border-left:4px solid var(--warn);background:#342b22;padding:15px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}#preview h3{margin-bottom:5px}.hint{font-size:.88rem}.risk{border-radius:10px;padding:12px;background:#2d3424}#errors{color:var(--warn)}.tag{font-size:.74rem;letter-spacing:.09em;color:var(--green);text-transform:uppercase;font-weight:800}@media(max-width:650px){.grid{grid-template-columns:1fr}section{padding:16px}}
+</style></head><body><main>
+<a href="creator.html">← Back to creator</a>
+<div class="tag" style="margin-top:25px">Quest intake / v0.3</div><h1>Review with care.</h1>
+<p>Practice receiving draft missions, identifying gaps and recording a transparent recommendation. The workbench cannot approve publication, validate a person's identity, or establish consent.</p>
+<div class="notice"><strong>Local-only review.</strong> No file is uploaded. Do not inspect private dossiers, identifying allegations, or sensitive reports in this demonstration. Treat all author declarations as unverified. This is not an official authorized-review system.</div>
+<section><h2>1. Open a draft</h2><label for="draftFile">Select a REGEN draft JSON file</label><input id="draftFile" type="file" accept=".json,application/json"><div id="preview" role="status" aria-live="polite"><p>No proposal loaded.</p></div></section>
+<section><h2>2. Review the risk and consent record</h2><div id="triage">Import a local draft to see its safety declarations and fields.</div></section>
+<section><h2>3. Record a recommendation</h2><p class="hint">You may suggest revision, reject an unsafe concept, or refer a thoroughly documented proposal for a *separate* authorized human review. There is no approval choice.</p>
+<div class="grid" id="areas"></div>
+<label for="recommendation">Recommended next action</label><select id="recommendation">
+<option value="request_changes">Request changes</option><option value="reject">Reject proposal</option><option value="refer_to_authorized_review">Refer to authorized human review (not approval)</option>
+</select>
+<label for="notes">Rationale, outstanding concerns, or safe corrections</label><textarea id="notes" placeholder="Record specific concerns without including private information."></textarea>
+<button type="button" id="check" disabled>Check review note</button> <button type="button" id="download" disabled>Export untrusted review note</button>
+<div id="errors" role="status" aria-live="polite"></div>
+</section>
+<section><h2>What this does not authorize</h2><p>Completing a review worksheet does not approve, certify, publish, or authorize any quest. Future live signoff requires trusted reviewer identities, independence, governance, version binding, appeals and protected production controls. See <a href="../docs/12-quest-creation-and-review-v0.3.md">the proposed approval protocol</a>.</p></section>
+</main>
+<script src="quest-authoring.js"></script>
+<script src="quest-review.js"></script>
+<script>
+"use strict";
+const A=window.REGENAuthoring,R=window.REGENReview,$=id=>document.getElementById(id);
+const titles={safety_and_consent:"Safety and voluntary consent",affected_people:"Affected people and burdens",accessibility:"Equitable access",evidence_and_fairness:"Evidence and fairness",stop_and_appeals:"Stopping rules and appeals"};
+let proposal=null,worksheet=null;
+for(const key of R.AREAS){
+ const wrap=document.createElement("div"),label=document.createElement("label"),select=document.createElement("select");
+ label.htmlFor=key;label.textContent=titles[key];select.id=key;
+ for(const [value,text] of [["not_assessed","Not assessed"],["needs_changes","Needs changes"],["addressed","Addressed (local assessment only)"]]){
+  const opt=document.createElement("option");opt.value=value;opt.textContent=text;select.append(opt);
+ }
+ wrap.append(label,select);$("areas").append(wrap);
+}
+function showMessage(message){$("errors").textContent=message;}
+function addParagraph(target,label,value){
+ const p=document.createElement("p"),strong=document.createElement("strong");strong.textContent=label+": ";
+ p.append(strong,document.createTextNode(String(value||"(not supplied)")));target.append(p);
+}
+$("draftFile").addEventListener("change",async e=>{
+ proposal=null;worksheet=null;$("check").disabled=true;$("download").disabled=true;
+ const f=e.target.files?.[0];if(!f)return;
+ try{
+  if(f.size>100000)throw Error("The local file is too large to inspect in this demo.");
+  const p=JSON.parse(await f.text());
+  if(p.record_type!=="regen_quest_proposal"||p.publication_status!=="draft")throw Error("Only unapproved REGEN drafts may be screened.");
+  const report=A.screen(p),root=$("preview");root.replaceChildren();
+  addParagraph(root,"Proposal",p.title);
+  addParagraph(root,"ID and version",String(p.id)+" / "+String(p.version));
+  addParagraph(root,"Overview",p.summary);
+  addParagraph(root,"Structural check",report.structurally_complete?"Complete; not approved":"Incomplete; revision required");
+  if(report.errors.length)addParagraph(root,"Missing information",report.errors.join("; "));
+  const triage=$("triage");triage.replaceChildren();
+  addParagraph(triage,"Self-reported risk flags",report.risk_flags.join(", ")||"All marked no (unverified)");
+  const records=p.review||{};
+  for(const field of A.REVIEW_FIELDS)addParagraph(triage,field.replace(/_/g," "),records[field]);
+  addParagraph(triage,"Human review",report.warnings.join(" "));
+  proposal=p;$("check").disabled=false;showMessage("Complete the five review assessments; review remains non-authoritative.");
+ }catch(err){$("preview").textContent="Cannot load proposal: "+err.message;$("triage").textContent="No valid local draft loaded.";showMessage("Select a readable REGEN draft.");}
+ e.target.value="";
+});
+function rawAnswers(){
+ const a={recommendation:$("recommendation").value,notes:$("notes").value};
+ for(const key of R.AREAS)a[key]=$(key).value;
+ return a;
+}
+function assess(){
+ if(!proposal)return;
+ const w=R.createWorksheet(proposal,rawAnswers()),errors=R.validateWorksheet(w),screen=A.screen(proposal);
+ if(!screen.structurally_complete&&w.recommendation==="refer_to_authorized_review")errors.push("The underlying proposal is incomplete; request revision instead.");
+ worksheet=errors.length?null:w;
+ $("download").disabled=!worksheet;
+ showMessage(errors.length?errors.join(" · "):"Worksheet complete. Export is an untrusted local note; it cannot publish or approve anything.");
+}
+$("check").addEventListener("click",assess);
+$("download").addEventListener("click",()=>{
+ if(!worksheet)return;
+ const content=JSON.stringify(worksheet,null,2)+"\n";
+ const url=URL.createObjectURL(new Blob([content],{type:"application/json"}));
+ const a=document.createElement("a");a.download="regen-review-note-"+worksheet.proposal_id+".json";a.href=url;a.click();URL.revokeObjectURL(url);
+});
+for(const id of [...R.AREAS,"recommendation","notes"])$(id).addEventListener("input",()=>{worksheet=null;$("download").disabled=true});
+</script></body></html>
