@@ -19,9 +19,11 @@ jobs:
       - run: node --check web/quest-engine.js
       - run: node --check web/quest-authoring.js
       - run: node --check web/quest-review.js
+      - run: node --check web/simulation-engine.js
       - run: node --test tests/*.test.cjs
       - run: python tests/build_prototype.py
-      - run: git diff --exit-code -- web/index.html
+      - run: python tests/build_lab.py
+      - run: git diff --exit-code -- web/index.html web/lab.html
       - name: Check JS syntax
         run: |
           python - <<'PY'
@@ -47,3 +49,18 @@ jobs:
           PY
           node --check /tmp/regen-creator.js
           node --check /tmp/regen-reviewer.js
+      - name: Check simulation lab embedded script and no outreach
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html=Path('web/lab.html').read_text()
+          scripts=re.findall(r'<script(?: [^>]*)?>(.*?)</script>',html,re.S)
+          assert len(scripts)==3
+          assert 'simulation-engine.js' in html and 'quest-engine.js' in html
+          assert 'fetch(' not in html and 'XMLHttpRequest' not in html
+          assert 'localStorage' not in html and 'sessionStorage' not in html
+          Path('/tmp/regen-lab.js').write_text(scripts[-1])
+          PY
+          node --check /tmp/regen-lab.js
+
