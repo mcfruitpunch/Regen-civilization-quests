@@ -8,7 +8,7 @@ const byId = id => quests.find(q=>q.id===id);
 
 test("real catalog has an acyclic, internally consistent prerequisite graph",()=>{
   assert.equal(engine.validate(quests),true);
-  assert.equal(new Set(quests.map(q=>q.id)).size,12);
+  assert.equal(new Set(quests.map(q=>q.id)).size,30);
   assert.ok(quests.every(q=>q.publication_status==="illustrative_only"));
 });
 
