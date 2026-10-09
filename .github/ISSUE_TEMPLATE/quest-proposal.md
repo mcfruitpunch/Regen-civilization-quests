@@ -1,31 +1,32 @@
 ---
-name: Quest proposal
-about: Propose an accessible, safe, opt-in quest for review
-title: "Quest: "
+name: Quest concept (safe discussion)
+about: Suggest a low-risk idea for human triage; never submit private information
+title: "Quest idea: "
 labels: []
 assignees: []
 ---
+> **Privacy warning:** GitHub issues in this repository are public. Do not include names, contact details, private organizational records, photographs of people, accusations about identifiable individuals, medical information, or other sensitive evidence.
+>
+> This is a concept discussion only. Filling in this issue or passing a machine check does not authorize a quest's publication or real-world execution.
+>
+> For a structured local draft, open [REGEN Creator](../../web/creator.html), export JSON onto your own device, and read [review process](../../docs/12-quest-creation-and-review-v0.3.md) before sharing sanitized material.
 
-## Intended regenerative benefit
-Describe a specific, measurable need and the community requesting it.
+## Idea in one sentence
+Describe the optional regenerative action, without naming or targeting people.
 
-## Who benefits and who could be harmed?
-Include directly affected people and any risks of shifting costs to others.
+## Who benefits or could be burdened?
+Explain whose participation or consent would be needed.
 
-## Quest steps and prerequisites
-Start with a small, reversible, safe version. Describe required permissions.
+## Access and low-resource alternatives
+How can somebody do this without spending money, traveling, or disclosing personal details?
 
-## Accessibility and low-resource alternatives
-Provide equivalent routes for remote participation, low-cost access, and different abilities.
+## Possible safety, privacy or ethical risks
+Include uncertainties, not just confident assurances.
 
-## Safety and consent checks
-No covert access, political targeting, harassment, profiling, or unsafe activity. Explain any local review needed.
+## Outcome and limitations
+What useful small change could be observed? What cannot be inferred from completion?
 
-## Evidence tier and limits
-Distinguish self-report from reviewed or independently verified outcomes.
+## Stopping or correction plan
+When should this idea be revised, withdrawn or rejected?
 
-## Feedback, stop rules, and corrections
-Who can challenge or stop the quest? How can harm be remedied?
-
-## Atlas node links (if known)
-Use a stable reference if available; otherwise leave blank.
+**No approval is being requested through this template; governance and independent review remain in development.**
