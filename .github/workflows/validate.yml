@@ -20,11 +20,13 @@ jobs:
       - run: node --check web/quest-authoring.js
       - run: node --check web/quest-review.js
       - run: node --check web/simulation-engine.js
+      - run: node --check web/progress-vault.js
       - run: node --test tests/*.test.cjs
       - run: python tests/build_prototype.py
       - run: python tests/build_lab.py
       - run: python scripts/check_atlas_links.py
       - run: python -m unittest discover -s tests -p 'test_atlas_boundary.py'
+      - run: python -m unittest discover -s tests -p 'test_progress_backup.py'
       - run: git diff --exit-code -- web/index.html web/lab.html
       - name: Check JS syntax
         run: |

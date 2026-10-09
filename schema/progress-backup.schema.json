@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "REGEN portable self-report backup v0.5",
+  "description": "Non-credential, non-verified, minimal-data backup. All fields strict. Import requires a preview and explicit choice, and may discard unknown IDs.",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format",
+        "version",
+        "evidence",
+        "completed_ids"
+      ],
+      "properties": {
+        "format": {
+          "const": "regen-local-progress"
+        },
+        "evidence": {
+          "const": "self_report_only"
+        },
+        "completed_ids": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 2000,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 96
+          }
+        },
+        "version": {
+          "const": 1
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format",
+        "version",
+        "evidence",
+        "catalog_version",
+        "completed_ids"
+      ],
+      "properties": {
+        "format": {
+          "const": "regen-local-progress"
+        },
+        "evidence": {
+          "const": "self_report_only"
+        },
+        "completed_ids": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 2000,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 96
+          }
+        },
+        "version": {
+          "const": 2
+        },
+        "catalog_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[a-zA-Z0-9._-]+$"
+        }
+      }
+    }
+  ]
+}

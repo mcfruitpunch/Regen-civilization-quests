@@ -31,13 +31,14 @@ function boot(){
   };
   const context={
     document:doc,location:{protocol:"file:",pathname:"/web/index.html"},
-    localStorage:{getItem(k){return stored.get(k)||null},setItem(k,v){stored.set(k,v)}},
+    localStorage:{getItem(k){return stored.get(k)||null},setItem(k,v){stored.set(k,v)},removeItem(k){stored.delete(k)}},
     confirm(){return true},setTimeout(){},console,Blob,URL,
     scrollTo(){}
   };
   context.window=context;
   vm.createContext(context);
   vm.runInContext(read("web/quest-engine.js"),context,{timeout:3000});
+  vm.runInContext(read("web/progress-vault.js"),context,{timeout:3000});
   vm.runInContext(inline[1],context,{timeout:3000});
   return {context,el,stored};
 }
