@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "REGEN-to-Atlas link proposal v0.4 (non-public, unverified)",
+  "description": "A proposal to link a learning quest to an Atlas node, not an imported Atlas record or validated public claim.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "quest_id",
+    "atlas_node_id",
+    "atlas_revision",
+    "relation",
+    "rationale",
+    "status",
+    "source_visibility",
+    "evidence_state"
+  ],
+  "properties": {
+    "quest_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "atlas_node_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}-[0-9]{2}(-[A-Z0-9]{2,})?$"
+    },
+    "atlas_revision": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]{5,80}$"
+    },
+    "relation": {
+      "enum": [
+        "learning_about",
+        "system_context",
+        "transition_hypothesis"
+      ]
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 25,
+      "maxLength": 600
+    },
+    "status": {
+      "const": "proposal_only"
+    },
+    "source_visibility": {
+      "enum": [
+        "independently_public",
+        "permission_required"
+      ]
+    },
+    "evidence_state": {
+      "enum": [
+        "unverified_mapping",
+        "review_pending"
+      ]
+    },
+    "source_citation": {
+      "type": "string",
+      "maxLength": 400
+    }
+  }
+}

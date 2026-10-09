@@ -7,9 +7,24 @@ ROOT=Path(__file__).resolve().parents[1]
 pack=json.loads((ROOT/'data/quests.json').read_text())
 schema=json.loads((ROOT/'schema/quest.schema.json').read_text())
 quests=pack['quests']
-assert len(quests)==12, 'Expected 12 illustrative quest examples'
+assert len(quests)==30, 'Expected 30 illustrative learning quests'
 ids=[q['id'] for q in quests]
 assert len(set(ids))==len(ids), 'Quest IDs must be unique'
+assert len(set(q['domain'] for q in quests))==6, 'Expected six curriculum areas'
+paths=json.loads((ROOT/'data/pathways.json').read_text())['pathways']
+assert len(paths)==10, 'Expected ten pre-community learning pathways'
+assert len({p['id'] for p in paths})==len(paths)
+by_id={q['id']:q for q in quests}
+for path in paths:
+    assert len(path['quest_ids'])>=3, path['id']
+    assert len(set(path['quest_ids']))==len(path['quest_ids']), path['id']
+    assert all(qid in by_id for qid in path['quest_ids']), path['id']
+    assert all(
+        by_id[path['quest_ids'][i]]['stage']<=by_id[path['quest_ids'][i+1]]['stage']
+        for i in range(len(path['quest_ids'])-1)
+    ), path['id']
+    assert len(path['learning_goal'])>20 and len(path['non_goal'])>20
+
 allowed_skills={
 'Ecological Restoration','Community Building','Building & Engineering','Civic Transformation',
 'Creative Expression','Education & Research','Regenerative Enterprise','Systems Thinking'}
@@ -31,6 +46,13 @@ assert '<script src="quest-engine.js"></script>' in html
 assert 'id="journey"' in html
 assert 'id="pathRecommendations"' in html
 assert 'renderJourney()' in html
+assert 'id="statCatalog"' in html
+assert 'href="lab.html"' in html
+lab=(ROOT/'web/lab.html').read_text()
+assert '__LAB_DATA__' not in lab
+assert 'simulation-engine.js' in lab
+assert 'Fictional' in lab or 'fictional' in lab
+
 assert 'No account' in html
 assert 'covert infiltration' in html
 assert 'Self-reported' in html

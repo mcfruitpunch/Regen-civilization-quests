@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
+<title>REGEN / Pre-Community Lab v0.4</title>
+<meta name="description" content="REGEN v0.4: simulated quest journeys, coverage gaps and pre-community checks. No participant data.">
+<style>
+:root{color-scheme:dark;--bg:#0b1711;--panel:#13281e;--panel2:#193728;--line:#375c47;--text:#ecf9ee;--soft:#b6d6c0;--mint:#b9eaa2;--amber:#f1d7a4}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 70% 0,#25533a,var(--bg) 60%);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}main{width:min(1100px,calc(100% - 28px));margin:28px auto 85px}a{color:var(--mint)}.eyebrow{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--mint)}h1{font-size:clamp(2.15rem,5vw,3.8rem);line-height:1.12}h2{font-size:1.45rem;margin:4px 0 12px}h3{font-size:1.07rem;margin:4px 0}p,li{color:var(--soft)}.notice,.panel{background:var(--panel);padding:20px;border:1px solid var(--line);border-radius:15px;margin:16px 0}.notice{border-left:4px solid var(--amber)}.panel2{background:var(--panel2);padding:15px;border-radius:11px;margin:13px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.metric{background:var(--panel2);padding:16px;border-radius:12px}.metric strong{display:block;font-size:1.65rem}.metric small{color:var(--soft)}label{display:block;font-weight:700;margin-bottom:7px}select,button{font:inherit}select{width:100%;color:var(--text);padding:12px;border:1px solid #668874;border-radius:8px;background:#102419}button{padding:12px 19px;border:0;background:var(--mint);font-weight:750;color:#102015;border-radius:10px;cursor:pointer}button.alt{background:none;border:1px solid var(--line);color:var(--text)}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}.trace{counter-reset:step;list-style:none;margin:0;padding:0;display:grid;gap:10px}.trace li{border-left:3px solid var(--mint);background:#10241a;padding:15px}.trace p{margin:5px 0}.tag{display:inline-block;background:#2d4630;color:var(--mint);border-radius:5px;padding:3px 8px;font-size:.76rem}.muted{color:var(--soft);font-size:.88rem}.gap-list{margin-bottom:0;columns:2}.gap-list li{break-inside:avoid}.links{display:flex;gap:18px;flex-wrap:wrap}footer{margin-top:45px;border-top:1px solid var(--line);padding:20px 0}@media(max-width:760px){.grid,.metrics{grid-template-columns:1fr}.gap-list{columns:1}}
+</style></head><body><main>
+<div class="links"><a href="index.html">← Main prototype</a><a href="creator.html">Quest creator</a><a href="../docs/13-precommunity-lab-v0.4.md">Development lab framework</a></div>
+<div class="eyebrow" style="margin-top:26px">Pre-community lab · version 0.4</div>
+<h1>Rehearse the system<br>before we invite the world.</h1>
+<p>Explore how 30 illustrative learning quests behave under fictional time, interest, access, and interruption constraints. This lab is a design instrument, not a judgment of real people or proof of regeneration.</p>
+<div class="notice"><strong>Simulation only:</strong> invented scenarios, no accounts, no location tracking, no real activity logs, no outreach and no validated social outcomes. An apparent successful route is evidence about software behavior—not about people's needs or safety.</div>
+<div class="grid">
+ <section class="panel"><div class="eyebrow">Test a scenario</div><label for="scenario">Fictional constraints</label><select id="scenario"></select><p id="scenarioDesc"></p><button id="run">Run simulated quest pathway</button><p class="muted">No changes are made to personal demo progress; no data is sent anywhere.</p></section>
+ <section class="panel"><div class="eyebrow">Rehearsal result</div><p id="stop" role="status" aria-live="polite">Select a scenario to see a deterministic route.</p><div class="metrics"><div class="metric"><strong id="stepsCount">—</strong><small>Hypothetical quests</small></div><div class="metric"><strong id="totalTime">—</strong><small>Estimated minutes</small></div><div class="metric"><strong id="stages">—</strong><small>Scopes reached</small></div></div></section>
+</div>
+<section class="panel"><h2>Trace: what would the engine suggest?</h2><ol class="trace" id="trace"><li>Choose a scenario and run the rehearsal.</li></ol></section>
+<section class="panel"><h2>Coverage and blind spots</h2><p>These metrics describe *only the hand-authored sample scenarios*—not fairness, effectiveness, or whether people can actually use REGEN. A quest absent from all traces may simply need a different fictional scenario.</p>
+<div id="coverageMetrics" class="metrics"></div><div class="panel2"><h3>Sample journeys never encounter these quest IDs</h3><ul class="gap-list" id="gaps"></ul></div></section>
+<section class="panel"><h2>Pre-community exit gates</h2><ul><li>Independent governance and license decisions recorded.</li><li>Threat modeling, negative-case tests, privacy review, and accessibility testing with actual assistive technologies.</li><li>Safety, consent, revocation and complaints processes staffed and documented.</li><li>A first opted-in, narrow partner pilot designed with affected people, not for them.</li><li>Outcomes distinguish invented model results, self-reports, and externally reviewed evidence.</li></ul><p><strong>Not ready for submissions:</strong> we can build many more modules, but must not claim our pre-built priorities represent what communities would choose.</p></section>
+<footer><a href="../README.md">Full project documentation</a> · All scenarios are fictional and no one is scored.</footer>
+</main>
+<script src="quest-engine.js"></script><script src="simulation-engine.js"></script>
+<script>
+"use strict";
+const LAB_DATA=__LAB_DATA__;
+const $=id=>document.getElementById(id);
+const scenarios=LAB_DATA.scenarios,quests=LAB_DATA.quests,lab=window.REGENLab;
+const select=$("scenario");
+for(const scenario of scenarios){const opt=document.createElement("option");opt.value=scenario.id;opt.textContent=scenario.name;select.append(opt);}
+function updateDescription(){const s=scenarios.find(x=>x.id===select.value);$("scenarioDesc").textContent=s?.description||"";}
+function resetChildren(el){while(el.firstChild)el.removeChild(el.firstChild);}
+function paragraph(parent,text){const p=document.createElement("p");p.textContent=text;parent.append(p);}
+function runScenario(){
+ const s=scenarios.find(x=>x.id===select.value);
+ const result=lab.simulate(quests,s);
+ $("stop").textContent="Stopped: "+result.stop_reason.replaceAll("_"," ")+". Every step is hypothetical.";
+ $("stepsCount").textContent=String(result.steps.length);
+ $("totalTime").textContent=String(result.total_estimated_minutes);
+ $("stages").textContent=result.stages_encountered.join(", ")||"None";
+ const out=$("trace");resetChildren(out);
+ if(!result.steps.length){const item=document.createElement("li");item.textContent="No fitting next step in this simulation. Adjusting constraints may reveal other routes; this is not a participant failure.";out.append(item);}
+ else for(const step of result.steps){
+   const li=document.createElement("li"),h=document.createElement("h3");
+   h.textContent="Step "+step.step+": "+step.title;li.append(h);
+   paragraph(li,"Estimated "+step.estimated_minutes+" min · Scope "+step.stage);
+   paragraph(li,"Why suggested: "+step.reason);
+   const status=document.createElement("span");status.className="tag";status.textContent="Fictional marker only";li.append(status);out.append(li);
+ }
+}
+function showCoverage(){
+ const result=lab.audit(quests,scenarios),rows=[
+  ["Illustrative quests",result.seed_quests],
+  ["Fictional scenarios",result.scenarios],
+  ["Quests encountered",result.encountered_quest_count]
+ ];
+ const root=$("coverageMetrics");resetChildren(root);
+ for(const [label,value] of rows){const item=document.createElement("div"),strong=document.createElement("strong"),small=document.createElement("small");
+ item.className="metric";strong.textContent=String(value);small.textContent=label;item.append(strong,small);root.append(item);}
+ const gaps=$("gaps");resetChildren(gaps);
+ for(const id of result.unreachable_in_these_scenarios){const li=document.createElement("li");li.textContent=id;gaps.append(li);}
+ if(!result.unreachable_in_these_scenarios.length){const li=document.createElement("li");li.textContent="Every illustrative quest appears in at least one fictional scenario.";gaps.append(li);}
+}
+select.addEventListener("change",updateDescription);
+$("run").addEventListener("click",runScenario);
+updateDescription();showCoverage();runScenario();
+</script>
+</body></html>
