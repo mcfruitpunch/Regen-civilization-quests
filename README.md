@@ -1,6 +1,6 @@
 # REGEN — Civilization Quest System
 
-**Version:** 0.3 development branch · **Status:** concept + offline interactive prototype · **Date:** 2026-10-09
+**Version:** 0.4 pre-community lab branch · **Status:** concept + offline interactive prototype · **Date:** 2026-10-09
 
 > Turn the work of building regenerative communities into an approachable, cooperative, real-world quest system.
 
@@ -16,7 +16,7 @@ REGEN is a proposal for an opt-in, game-inspired participation layer over a **Re
 
 ## Open the prototype
 
-Open [`index.html`](index.html) (or [`web/index.html`](web/index.html) directly) in a browser. No installation, account, server, internet, GPS, or API key required. It contains 12 example quests, basic filters, skill areas, a quest detail view, local-only completion tracking, and a new **My pathway** view showing explainable, advisory sequences. Open any quest regardless of prerequisite markers; prior participation is not required to access the content. The quest completion record is **self-reported**, not verified impact.
+Open [`index.html`](index.html) (or [`web/index.html`](web/index.html) directly) in a browser. No installation, account, server, internet, GPS, or API key required. It contains 30 illustrative quests, basic filters, skill areas, a quest detail view, local-only completion tracking, and a new **My pathway** view showing explainable, advisory sequences. Open any quest regardless of prerequisite markers; prior participation is not required to access the content. The quest completion record is **self-reported**, not verified impact.
 
 A separate single-file HTML preview is available alongside the repository ZIP.
 
@@ -25,6 +25,12 @@ A separate single-file HTML preview is available alongside the repository ZIP.
 Open [`web/creator.html`](web/creator.html) to write a quest proposal locally, complete explicit safety/consent/risk answers, run advisory checks, and **export a JSON draft**. A companion [`web/reviewer.html`](web/reviewer.html) lets someone inspect a locally exported draft and record **non-authoritative** feedback or referrals. No login, network submission, server, or automatic review is involved. See [`docs/12-quest-creation-and-review-v0.3.md`](docs/12-quest-creation-and-review-v0.3.md). **Passing automated checks is never approval to publish or execute a real-world mission.** This is not yet an operational public submission service.
 
 Use `python scripts/screen_quest.py` to validate checked-in drafts and prevent non-illustrative content from being released into the prototype. Run `node --test tests/*.test.cjs` to test both pathway and creation logic. Public issues should never contain private evidence or identifying details.
+
+## Test the pre-community lab (v0.4)
+
+Open [`web/lab.html`](web/lab.html) to replay nine fully fictional scenarios without changing personal progress. Review ten curated, optional learning pathways in [`data/pathways.json`](data/pathways.json). The lab reports what sample routes would be suggested given time, remote/community preferences, unavailable permissions, and interruptions; **it does not prove access, impact, consent, or outcomes for real people**. The expanded sample library contains 30 illustrative quests across six domains.
+
+See [`docs/13-precommunity-lab-v0.4.md`](docs/13-precommunity-lab-v0.4.md) for what can be built internally, what requires eventual community and independent review, and the gates that must remain closed before public submissions.
 
 ## Read the foundation
 
@@ -41,10 +47,11 @@ Use `python scripts/screen_quest.py` to validate checked-in drafts and prevent n
 | [`docs/10-quest-engine-v0.2.md`](docs/10-quest-engine-v0.2.md) | Deterministic pathway engine, filters, limits and tests |
 | [`docs/11-license-governance-options.md`](docs/11-license-governance-options.md) | Unapproved licensing choices and anti-capture governance proposal |
 | [`docs/12-quest-creation-and-review-v0.3.md`](docs/12-quest-creation-and-review-v0.3.md) | Quest creator, preflight screening, human review proposal, and launch gates |
+| [`docs/13-precommunity-lab-v0.4.md`](docs/13-precommunity-lab-v0.4.md) | Pre-community curriculum, simulations, maturity gates, and build roadmap |
 
 Quest examples are in [`data/quests.json`](data/quests.json), contract in [`schema/quest.schema.json`](schema/quest.schema.json), and explainable progression logic in [`web/quest-engine.js`](web/quest-engine.js). Recommendations do not certify a person's abilities or the impact of their work. 
 
-## Not in scope at v0.3
+## Not in scope at v0.4
 
 - No social network, public profiles, global leaderboard, or reputational ranking.
 - No collection of participant location or identity and no uploading evidence.
@@ -58,7 +65,7 @@ Quest examples are in [`data/quests.json`](data/quests.json), contract in [`sche
 1. Run a small, opt-in pilot with a community group and pick **one** testable outcome (e.g. food waste prevented in a consenting venue).
 2. Co-design the quest safety and verification process with those affected.
 3. Decide the software/content license and adopt contribution, safety, and governance policies before public release.
-4. Review the stacked v0.2/v0.3 development PRs and hosted GitHub Actions checks; accessibility testing is not finished.
+4. Review the stacked v0.2/v0.3/v0.4 pull requests, hosted CI, and architecture. Real-device accessibility and independent review remain necessary.
 5. Later connect Atlas nodes to quest pathways through a versioned, human-reviewed interface.
 
 This is an **early design**, not a validated social intervention. Preserve dignity and agency; measure benefits and unintended harms, not just participation.
