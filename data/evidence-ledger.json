@@ -167,10 +167,10 @@
       "revision": 1,
       "title": "Proposed access alternatives in a mock workshop",
       "domain": "Community",
-      "claim_kind": "design_proposal",
+      "claim_kind": "synthetic_observation",
       "evidence_layer": "output",
       "statement": "An invented facilitator describes three alternative ways to participate without actually recruiting anybody.",
-      "method": "A hypothetical planning exercise catalogs options for review rather than testing accessibility.",
+      "method": "This synthetic fixture tallies alternatives written in an imaginary workshop plan; there is no actual usability or participation measurement.",
       "source_ids": [
         "SYN-SRC-ACCESS",
         "SYN-SRC-COMMUNITY"
