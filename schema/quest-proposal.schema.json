@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "REGEN v0.3 proposed quest — local draft only",
+  "description": "Checks structure; passing does not mean safe, ethical, approved or publishable. All proposals must remain drafts until trusted human governance exists.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "title",
+    "summary",
+    "stage",
+    "domain",
+    "kind",
+    "estimated_minutes",
+    "setting",
+    "skills",
+    "objective",
+    "steps",
+    "reflection_prompt",
+    "accessibility_alternative",
+    "consent_requirement",
+    "safety_notes",
+    "next_quest_id",
+    "atlas_refs",
+    "record_type",
+    "publication_status",
+    "evidence_level",
+    "review"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 100
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 12,
+      "maxLength": 200
+    },
+    "stage": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 7
+    },
+    "domain": {
+      "enum": [
+        "Community",
+        "Learning",
+        "Repair",
+        "Food",
+        "Civic",
+        "Systems"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "learn",
+        "observe",
+        "act",
+        "collaborate",
+        "transform"
+      ]
+    },
+    "estimated_minutes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10080
+    },
+    "setting": {
+      "enum": [
+        "remote",
+        "home",
+        "community",
+        "flexible"
+      ]
+    },
+    "skills": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 10
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 8,
+      "items": {
+        "type": "string",
+        "minLength": 10
+      }
+    },
+    "reflection_prompt": {
+      "type": "string",
+      "minLength": 10
+    },
+    "accessibility_alternative": {
+      "type": "string",
+      "minLength": 10
+    },
+    "consent_requirement": {
+      "type": "string",
+      "minLength": 10
+    },
+    "safety_notes": {
+      "type": "string",
+      "minLength": 10
+    },
+    "next_quest_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "atlas_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "record_type": {
+      "const": "regen_quest_proposal"
+    },
+    "publication_status": {
+      "const": "draft"
+    },
+    "evidence_level": {
+      "const": "self_report"
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "community_need",
+        "affected_people",
+        "potential_harms",
+        "mitigation_plan",
+        "permissions_plan",
+        "accessibility_plan",
+        "impact_measure",
+        "stop_conditions",
+        "data_handling",
+        "accountability_route",
+        "risk_flags"
+      ],
+      "properties": {
+        "community_need": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "affected_people": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "potential_harms": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "mitigation_plan": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "permissions_plan": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "accessibility_plan": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "impact_measure": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "stop_conditions": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "data_handling": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "accountability_route": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "risk_flags": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "physical_hazard",
+            "regulated_activity",
+            "workplace_or_institution",
+            "children_or_vulnerable_people",
+            "sensitive_information",
+            "public_targeting",
+            "coercion_or_dependency"
+          ],
+          "properties": {
+            "physical_hazard": {
+              "type": "boolean"
+            },
+            "regulated_activity": {
+              "type": "boolean"
+            },
+            "workplace_or_institution": {
+              "type": "boolean"
+            },
+            "children_or_vulnerable_people": {
+              "type": "boolean"
+            },
+            "sensitive_information": {
+              "type": "boolean"
+            },
+            "public_targeting": {
+              "type": "boolean"
+            },
+            "coercion_or_dependency": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}
