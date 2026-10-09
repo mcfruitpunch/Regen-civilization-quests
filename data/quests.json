@@ -1,7 +1,7 @@
 {
-  "version": "0.2.0",
+  "version": "0.4.0",
   "status": "illustrative_only",
-  "description": "Illustrative, offline example quest pathways. Prerequisites are suggested learning sequences, never requirements to participate; a completion marker is self-report, not verified impact.",
+  "description": "30 fictional, offline pre-community learning quests across six additional curriculum strands. All quests remain illustrative_only, all prerequisite chains advisory, and self-reported completion never establishes outcomes.",
   "quests": [
     {
       "id": "first-spark",
@@ -377,6 +377,572 @@
       "publication_status": "illustrative_only",
       "prerequisite_ids": [
         "public-meeting"
+      ]
+    },
+    {
+      "id": "water-journey",
+      "version": "0.4.0",
+      "title": "Trace one water journey",
+      "summary": "Follow how water moves through a watershed without gathering private data.",
+      "stage": 1,
+      "domain": "Learning",
+      "kind": "learn",
+      "estimated_minutes": 25,
+      "setting": "remote",
+      "skills": [
+        "Ecological Restoration",
+        "Systems Thinking"
+      ],
+      "objective": "A simple source-linked diagram of where water travels.",
+      "steps": [
+        "Find an accessible public watershed or utility information page.",
+        "Sketch where rainwater, drinking water and wastewater may go; label uncertain connections.",
+        "Write two questions about how water infrastructure affects nearby ecosystems."
+      ],
+      "reflection_prompt": "What would you need to verify before treating your sketch as a fact?",
+      "accessibility_alternative": "Use an audio explanation or describe your diagram in plain words instead of drawing.",
+      "consent_requirement": "Only public sources and private reflection; no site visits or infrastructure access.",
+      "safety_notes": "Do not enter utility facilities, storm drains, watercourses, or restricted property.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": []
+    },
+    {
+      "id": "habitat-observation",
+      "version": "0.4.0",
+      "title": "Notice everyday habitat",
+      "summary": "Identify ecosystem features using public information or an existing safe view.",
+      "stage": 2,
+      "domain": "Learning",
+      "kind": "observe",
+      "estimated_minutes": 25,
+      "setting": "flexible",
+      "skills": [
+        "Ecological Restoration",
+        "Education & Research"
+      ],
+      "objective": "A non-identifying observation of habitat opportunities.",
+      "steps": [
+        "Choose a public park website, familiar window view, or existing nature guide.",
+        "Note two features that support living organisms and one possible barrier.",
+        "Record uncertainties and one question for local ecological expertise."
+      ],
+      "reflection_prompt": "Which organisms might benefit, and which assumptions remain uncertain?",
+      "accessibility_alternative": "Explore an accessible public nature guide entirely from home.",
+      "consent_requirement": "Do not collect private location details or enter sites that require permission.",
+      "safety_notes": "Do not handle wildlife, collect organisms, or identify private homes and people.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "water-journey"
+      ]
+    },
+    {
+      "id": "habitat-concept",
+      "version": "0.4.0",
+      "title": "Design a tiny habitat concept",
+      "summary": "Plan a low-risk habitat improvement without planting or disturbing land.",
+      "stage": 3,
+      "domain": "Systems",
+      "kind": "act",
+      "estimated_minutes": 35,
+      "setting": "home",
+      "skills": [
+        "Ecological Restoration",
+        "Creative Expression"
+      ],
+      "objective": "A reversible, non-executed habitat idea with expert questions.",
+      "steps": [
+        "Choose a fictional balcony, classroom, or public-space scenario for a concept sketch.",
+        "List climate, invasive-species, animal-safety and land-use questions to check.",
+        "Describe a low-cost alternative and conditions under which the idea should be rejected."
+      ],
+      "reflection_prompt": "What harm might occur if the wrong species or materials were used?",
+      "accessibility_alternative": "Write a short concept note or make an audio plan with no drawing required.",
+      "consent_requirement": "No real planting, habitat modification, or permission claims in this draft exercise.",
+      "safety_notes": "Do not release plants or animals, interfere with nesting areas, or modify public land.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "habitat-observation"
+      ]
+    },
+    {
+      "id": "access-perspective",
+      "version": "0.4.0",
+      "title": "Find an access-friendly design",
+      "summary": "Learn how a familiar activity offers multiple ways to participate.",
+      "stage": 1,
+      "domain": "Community",
+      "kind": "learn",
+      "estimated_minutes": 20,
+      "setting": "remote",
+      "skills": [
+        "Community Building",
+        "Systems Thinking"
+      ],
+      "objective": "A short description of choices that reduce participation barriers.",
+      "steps": [
+        "Select a public activity you already understand, such as library browsing.",
+        "Identify alternatives involving language, mobility, sensory access or cost.",
+        "Name one question you would ask affected people rather than assuming their needs."
+      ],
+      "reflection_prompt": "Which accessible options help people without requiring disclosure of disabilities?",
+      "accessibility_alternative": "Use a short spoken reflection or public example; no physical outing needed.",
+      "consent_requirement": "No identifying data or conversations with strangers are required.",
+      "safety_notes": "Do not infer any person's disability or publish details about them.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": []
+    },
+    {
+      "id": "clear-instructions",
+      "version": "0.4.0",
+      "title": "Rewrite a confusing instruction",
+      "summary": "Practice making public guidance easier to follow without changing its meaning.",
+      "stage": 2,
+      "domain": "Learning",
+      "kind": "act",
+      "estimated_minutes": 30,
+      "setting": "remote",
+      "skills": [
+        "Creative Expression",
+        "Community Building"
+      ],
+      "objective": "A private plain-language sample with a link to its source.",
+      "steps": [
+        "Choose a short, non-sensitive public instruction or fictional example.",
+        "Rewrite it with short steps, definitions, and an optional audio-friendly format.",
+        "Compare both versions to make sure no eligibility, warning, or deadline disappeared."
+      ],
+      "reflection_prompt": "Who should check whether the new instructions are genuinely accessible?",
+      "accessibility_alternative": "Speak the rewrite aloud or use dictation rather than typing.",
+      "consent_requirement": "Do not impersonate an agency or publish an unofficial version as authoritative.",
+      "safety_notes": "Avoid legal, financial or medical instructions where oversimplification could cause harm.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "access-perspective"
+      ]
+    },
+    {
+      "id": "access-workshop-sim",
+      "version": "0.4.0",
+      "title": "Rehearse an inclusive workshop",
+      "summary": "Design an imaginary session that allows participants to opt out and contribute differently.",
+      "stage": 3,
+      "domain": "Community",
+      "kind": "collaborate",
+      "estimated_minutes": 40,
+      "setting": "home",
+      "skills": [
+        "Community Building",
+        "Education & Research"
+      ],
+      "objective": "A fictional session plan with consent, participation choices and feedback routes.",
+      "steps": [
+        "Draft a 20-minute sample session with ways to join anonymously or not at all.",
+        "Offer speaking, writing, listening-only and asynchronous participation routes.",
+        "Include a correction process and describe how facilitators would avoid dominating."
+      ],
+      "reflection_prompt": "How will people know opting out will not reduce their access to benefits?",
+      "accessibility_alternative": "Use a written agenda rather than an actual event, with no partner necessary.",
+      "consent_requirement": "This is a simulation only; real events require organizers and participants to opt in.",
+      "safety_notes": "Do not represent affected communities without their involvement or collect identities.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "clear-instructions"
+      ]
+    },
+    {
+      "id": "object-life-story",
+      "version": "0.4.0",
+      "title": "Follow one object's life cycle",
+      "summary": "Explore how materials are made, used, repaired and recovered.",
+      "stage": 1,
+      "domain": "Repair",
+      "kind": "learn",
+      "estimated_minutes": 20,
+      "setting": "home",
+      "skills": [
+        "Building & Engineering",
+        "Systems Thinking"
+      ],
+      "objective": "A basic material-flow sketch distinguishing facts from guesses.",
+      "steps": [
+        "Choose a common household object such as a cup, notebook or storage box.",
+        "List its likely materials and where sourcing and disposal information can be verified.",
+        "Identify a repair, reuse, sharing or recycling possibility without assuming it is beneficial."
+      ],
+      "reflection_prompt": "Where would a reusable object introduce new energy or cleaning costs?",
+      "accessibility_alternative": "Describe an object from memory using public data without handling it.",
+      "consent_requirement": "Use your own object or a fictional example; no access to others' belongings.",
+      "safety_notes": "Do not dismantle hazardous electrical or chemical products.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": []
+    },
+    {
+      "id": "reuse-choice-grid",
+      "version": "0.4.0",
+      "title": "Compare three reuse choices",
+      "summary": "Evaluate practical trade-offs instead of assuming reuse always wins.",
+      "stage": 2,
+      "domain": "Repair",
+      "kind": "observe",
+      "estimated_minutes": 30,
+      "setting": "remote",
+      "skills": [
+        "Systems Thinking",
+        "Regenerative Enterprise"
+      ],
+      "objective": "A small choice matrix covering cost, effort, access and uncertain impacts.",
+      "steps": [
+        "Pick one worn nonhazardous item and three possible next uses or disposal routes.",
+        "Compare money, travel, safety, labor and material requirements for each option.",
+        "Flag unknown environmental claims and choose what you would need to research."
+      ],
+      "reflection_prompt": "Which option would impose an unfair cost or burden on someone else?",
+      "accessibility_alternative": "Use made-up example prices and publicly described options from home.",
+      "consent_requirement": "No store, worker or community participant needs to take part.",
+      "safety_notes": "Do not advise dismantling devices or handling hazardous waste without local guidance.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "object-life-story"
+      ]
+    },
+    {
+      "id": "sharing-station-blueprint",
+      "version": "0.4.0",
+      "title": "Sketch a borrowing station",
+      "summary": "Plan a fictional neighborhood sharing system with repair and responsibility rules.",
+      "stage": 3,
+      "domain": "Community",
+      "kind": "collaborate",
+      "estimated_minutes": 45,
+      "setting": "home",
+      "skills": [
+        "Community Building",
+        "Regenerative Enterprise"
+      ],
+      "objective": "A mock sharing-library blueprint including accessibility and liability questions.",
+      "steps": [
+        "Choose a hypothetical selection of safe tools or household resources.",
+        "Describe cleaning, upkeep, deposits, loss, accessibility and equipment hazards.",
+        "Draft clear opt-in rules and a rollback plan; do not solicit real users."
+      ],
+      "reflection_prompt": "Who pays for maintenance, and who decides what is safe to loan?",
+      "accessibility_alternative": "Design a digital checklist for shared book recommendations instead of physical items.",
+      "consent_requirement": "This exercise creates a concept only and does not authorize a physical lending program.",
+      "safety_notes": "No borrowing of dangerous tools or regulated equipment in the prototype.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "reuse-choice-grid"
+      ]
+    },
+    {
+      "id": "food-date-language",
+      "version": "0.4.0",
+      "title": "Decode food date labels",
+      "summary": "Learn why food labels require careful local safety interpretation.",
+      "stage": 1,
+      "domain": "Food",
+      "kind": "learn",
+      "estimated_minutes": 20,
+      "setting": "remote",
+      "skills": [
+        "Education & Research",
+        "Ecological Restoration"
+      ],
+      "objective": "A cautious explanation of date-label uncertainty and food-safety boundaries.",
+      "steps": [
+        "Consult an official or recognized public food-safety resource relevant to your area.",
+        "Identify at least two labels or handling instructions and their limitations.",
+        "Record one source of confusion and how you would ask a qualified expert for guidance."
+      ],
+      "reflection_prompt": "Why can a label or appearance alone be insufficient evidence of food safety?",
+      "accessibility_alternative": "Listen to published information rather than examining real food items.",
+      "consent_requirement": "No workplace or household data needed and no altered handling procedures.",
+      "safety_notes": "Never instruct others to consume, donate or re-serve unsafe food.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": []
+    },
+    {
+      "id": "food-storage-map",
+      "version": "0.4.0",
+      "title": "Map a pantry habit",
+      "summary": "Observe a personal food-storage routine without changing food safety procedures.",
+      "stage": 2,
+      "domain": "Food",
+      "kind": "observe",
+      "estimated_minutes": 30,
+      "setting": "home",
+      "skills": [
+        "Ecological Restoration",
+        "Systems Thinking"
+      ],
+      "objective": "A private record of one storage habit and a possible low-risk prevention idea.",
+      "steps": [
+        "Choose a fictional household or your own non-sensitive pantry routine.",
+        "Write one way food is labeled, rotated or planned without guessing about safety.",
+        "Compare an improvement idea with credible food-safety guidance; don't implement unsafe changes."
+      ],
+      "reflection_prompt": "Could this create extra work, expense or conflicts in a shared home?",
+      "accessibility_alternative": "Use a fictional grocery scenario without inspecting any household food.",
+      "consent_requirement": "Only your own non-sensitive observations or purely fictional data.",
+      "safety_notes": "Do not change temperature controls, storage times, or donation rules.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "food-date-language"
+      ]
+    },
+    {
+      "id": "food-pilot-simulation",
+      "version": "0.4.0",
+      "title": "Simulate a waste-prevention pilot",
+      "summary": "Use invented counts to practice evaluating a small food-waste intervention.",
+      "stage": 3,
+      "domain": "Food",
+      "kind": "act",
+      "estimated_minutes": 40,
+      "setting": "remote",
+      "skills": [
+        "Education & Research",
+        "Regenerative Enterprise"
+      ],
+      "objective": "A fictional baseline/after comparison with burden and uncertainty notes.",
+      "steps": [
+        "Choose a fabricated seven-day baseline with explicitly invented food-waste totals.",
+        "Describe a reversible scheduling or purchasing change and mock follow-up counts.",
+        "Calculate a hypothetical difference and list confounding factors and staff-burden questions."
+      ],
+      "reflection_prompt": "Why does an illustrative numerical improvement not establish real-world impact?",
+      "accessibility_alternative": "Use a plain-language comparison without arithmetic or spreadsheets.",
+      "consent_requirement": "This is a mathematical simulation, not an instruction to gather workplace records.",
+      "safety_notes": "Never claim pilot results are real, verified, or evidence of food safety.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "food-storage-map"
+      ]
+    },
+    {
+      "id": "civic-path",
+      "version": "0.4.0",
+      "title": "Learn a civic decision's route",
+      "summary": "Trace how an ordinary public decision is made using official sources.",
+      "stage": 1,
+      "domain": "Civic",
+      "kind": "learn",
+      "estimated_minutes": 25,
+      "setting": "remote",
+      "skills": [
+        "Civic Transformation",
+        "Education & Research"
+      ],
+      "objective": "A neutral diagram of a public process and how to verify its steps.",
+      "steps": [
+        "Choose a low-stakes public topic like a park-maintenance budget.",
+        "Read official process descriptions rather than relying only on commentary.",
+        "Sketch where proposals, hearings, decisions and public records may appear."
+      ],
+      "reflection_prompt": "Which parts of the decision process are fixed and which depend on location?",
+      "accessibility_alternative": "Write a short spoken summary of the process instead of a diagram.",
+      "consent_requirement": "Public documents only; no collecting participant identities.",
+      "safety_notes": "Do not target public officials, attendees, or people with different political views.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": []
+    },
+    {
+      "id": "public-budget-literacy",
+      "version": "0.4.0",
+      "title": "Read a public budget example",
+      "summary": "Practice checking an official budget without implying wrongdoing.",
+      "stage": 2,
+      "domain": "Civic",
+      "kind": "observe",
+      "estimated_minutes": 35,
+      "setting": "remote",
+      "skills": [
+        "Systems Thinking",
+        "Civic Transformation"
+      ],
+      "objective": "A source-linked summary of two categories and unresolved definitions.",
+      "steps": [
+        "Find a publicly available budget glossary or hypothetical municipal summary.",
+        "Compare two line items and note whether they represent plans or actual spending.",
+        "List limitations such as fiscal periods, accounting methods and missing context."
+      ],
+      "reflection_prompt": "What additional sources would be needed before drawing conclusions?",
+      "accessibility_alternative": "Use a fictional sample if real financial tables are inaccessible.",
+      "consent_requirement": "Use public aggregated material only and avoid identifying allegations.",
+      "safety_notes": "Do not characterize officials or organizations as corrupt from incomplete data.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "civic-path"
+      ]
+    },
+    {
+      "id": "service-access-guide",
+      "version": "0.4.0",
+      "title": "Design a public-service navigator",
+      "summary": "Create a neutral sample guide to help people locate official information.",
+      "stage": 3,
+      "domain": "Civic",
+      "kind": "act",
+      "estimated_minutes": 45,
+      "setting": "home",
+      "skills": [
+        "Creative Expression",
+        "Community Building"
+      ],
+      "objective": "A prototype guide that links official sources and discloses uncertainties.",
+      "steps": [
+        "Choose a public service category such as library membership or recycling.",
+        "Draft a three-step illustrated or text-only example with original links.",
+        "Check eligibility and local variation, and label your guide unofficial."
+      ],
+      "reflection_prompt": "Could incorrect eligibility guidance create meaningful harm or exclusion?",
+      "accessibility_alternative": "Provide an audio outline or simplified checklist rather than a website.",
+      "consent_requirement": "This is an independent sample, not a representation of any agency.",
+      "safety_notes": "Do not ask users for identities, applications, payments or private data.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "public-budget-literacy"
+      ]
+    },
+    {
+      "id": "systems-incentives",
+      "version": "0.4.0",
+      "title": "Map incentives without villains",
+      "summary": "Describe how rules and incentives shape outcomes without labeling individuals.",
+      "stage": 2,
+      "domain": "Systems",
+      "kind": "learn",
+      "estimated_minutes": 30,
+      "setting": "remote",
+      "skills": [
+        "Systems Thinking",
+        "Community Building"
+      ],
+      "objective": "A fictional map separating structures, behaviors and people.",
+      "steps": [
+        "Choose an invented organization with a resource-waste problem.",
+        "List pressures, rules, goals and points where information might be missing.",
+        "Offer one incentive change alongside transparent accountability for harm."
+      ],
+      "reflection_prompt": "How can the system protect affected people without treating anyone as beyond growth?",
+      "accessibility_alternative": "Use a three-column note instead of a diagram or conversation.",
+      "consent_requirement": "No contact with actual institutions or collection of individual profiles.",
+      "safety_notes": "Avoid accusations, surveillance, and covert influence tactics.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "first-spark"
+      ]
+    },
+    {
+      "id": "institutional-choice-grid",
+      "version": "0.4.0",
+      "title": "Compare accountable transition options",
+      "summary": "Evaluate voluntary institutional reforms and alternatives with realistic constraints.",
+      "stage": 4,
+      "domain": "Systems",
+      "kind": "observe",
+      "estimated_minutes": 55,
+      "setting": "remote",
+      "skills": [
+        "Systems Thinking",
+        "Regenerative Enterprise"
+      ],
+      "objective": "A hypothetical options grid for reform, oversight and replacement.",
+      "steps": [
+        "Create a fictional organization with documented hypothetical harms.",
+        "Compare three responses: voluntary reform, independent oversight and lawful alternative provision.",
+        "State the conditions for each option, who benefits, and who could bear hidden costs."
+      ],
+      "reflection_prompt": "What happens when leadership declines cooperation or an offered reform fails?",
+      "accessibility_alternative": "Use a narrated outline or simplified matrix instead of a spreadsheet.",
+      "consent_requirement": "Only fictional examples; no real organization is being assessed or approached.",
+      "safety_notes": "No advice about covert infiltration, sabotage, retaliation or manipulation.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "systems-incentives"
+      ]
+    },
+    {
+      "id": "accountability-compact-model",
+      "version": "0.4.0",
+      "title": "Draft a verifiable change compact",
+      "summary": "Design a fictional reform agreement that includes independent oversight and remedies.",
+      "stage": 5,
+      "domain": "Systems",
+      "kind": "transform",
+      "estimated_minutes": 60,
+      "setting": "home",
+      "skills": [
+        "Civic Transformation",
+        "Systems Thinking"
+      ],
+      "objective": "A sample accountable-change compact with measurable conditions and expiry.",
+      "steps": [
+        "Write hypothetical voluntary commitments for an invented institution.",
+        "Define deadlines, independently checkable evidence, protections, remedies and appeal routes.",
+        "Describe suspension, rollback and an alternative path if commitments are not honored."
+      ],
+      "reflection_prompt": "How could incentives or sponsorship corrupt a compact without independent checks?",
+      "accessibility_alternative": "Draft a one-page plain-language example without legal drafting or group meetings.",
+      "consent_requirement": "Fictional planning only; do not claim an institution has agreed or been rehabilitated.",
+      "safety_notes": "Never claim legal enforceability, solicit real-world confidential material, or imply approval.",
+      "evidence_level": "self_report",
+      "next_quest_id": null,
+      "atlas_refs": [],
+      "publication_status": "illustrative_only",
+      "prerequisite_ids": [
+        "institutional-choice-grid"
       ]
     }
   ]
