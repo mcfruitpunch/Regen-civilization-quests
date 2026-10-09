@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
-<meta name="description" content="REGEN v0.4: a playable, privacy-first prototype for building regenerative communities one quest at a time.">
+<meta name="description" content="REGEN v0.5: a playable, privacy-first prototype for building regenerative communities one quest at a time.">
 <title>REGEN / The Civilization Quest</title>
 <style>
 :root {color-scheme:dark;--bg:#09140f;--sidebar:#0b1914;--surface:#10241c;--surface2:#173028;--surface3:#1b3d31;--line:#2a4a3d;--text:#eff8f0;--soft:#b6cec0;--sub:#87ad98;--mint:#b8ef99;--sun:#f9d995;--blue:#a3d9dc;--coral:#ffbcac;--shadow:0 30px 60px #020e0966}
@@ -19,10 +19,11 @@
 <body>
 <div class="app">
 <aside class="sidebar" aria-label="Primary navigation">
- <div class="brand"><span class="mark" aria-hidden="true">✳</span> REGEN<span style="color:var(--sub);font-size:.67rem;letter-spacing:0">v0.4</span></div>
+ <div class="brand"><span class="mark" aria-hidden="true">✳</span> REGEN<span style="color:var(--sub);font-size:.67rem;letter-spacing:0">v0.5</span></div>
  <nav class="nav" aria-label="Sections">
   <button class="active" data-nav="overview" aria-current="page"><span class="glyph" aria-hidden="true">◈</span> Overview</button>
   <button data-nav="journey"><span class="glyph" aria-hidden="true">⇢</span> My pathway</button>
+  <button data-nav="vault"><span class="glyph" aria-hidden="true">▣</span> Progress vault</button>
   <button data-nav="quests"><span class="glyph" aria-hidden="true">◎</span> Quest board</button>
   <a href="creator.html" style="display:block;padding:11px 16px;color:var(--mint);font-weight:650;text-decoration:none;border:1px solid var(--line);border-radius:10px;margin-top:8px">＋ Create a quest draft ↗</a>
   <button data-nav="skills"><span class="glyph" aria-hidden="true">✦</span> Skill pathways</button>
@@ -63,8 +64,40 @@
  <div class="softpanel"><h3>Your progress belongs to you</h3><p>No account or server. Only quest IDs you mark complete are stored locally in this browser (if storage is available). Export is optional; it contains no name, location, or evidence of impact.</p><button class="secondary" id="exportProgress" type="button">Export my self-reported progress</button></div>
 </section>
 
+<section id="vault" class="page" aria-label="Progress vault">
+ <div class="eyebrow">Progress Vault / v0.5</div>
+ <h1 class="page-title">Your progress. <span class="accent">Your choice.</span></h1>
+ <p class="desc">Back up, inspect, restore, and erase the small set of quest IDs you've marked complete. No account, signup, GPS, analytics or server upload. Self-reported completion is never proof of environmental or social impact.</p>
+ <div class="softpanel">
+  <h3>Local storage status</h3>
+  <p id="vaultStorage" role="status" aria-live="polite">Checking browser storage.</p>
+  <p><strong id="vaultCount">0</strong> illustrative quests marked complete in this tab.</p>
+  <button class="primary" id="vaultExport" type="button">Download backup JSON</button>
+  <p class="desc">A backup includes only quest IDs, a file-format version, the illustrative catalog version and an explicit self-report label. Keep downloaded files wherever you choose; REGEN cannot access or delete copies you save elsewhere.</p>
+ </div>
+ <section class="section" aria-labelledby="importHeading">
+  <h2 id="importHeading">Restore or combine a backup</h2>
+  <p class="desc">Select a local REGEN backup. You'll see a preview first—nothing changes until you choose an action and confirm it. Older v0.2 (v1 format) exports are supported. Unknown quest IDs are ignored and counted, not treated as completed.</p>
+  <label for="vaultFile" style="display:block;margin:12px 0">Choose backup JSON</label>
+  <input type="file" id="vaultFile" accept=".json,application/json" style="display:block;max-width:100%;margin:12px 0">
+  <div class="softpanel" id="vaultPreview" role="status" aria-live="polite">No backup selected.</div>
+  <label for="vaultMode" style="display:block;margin:12px 0">How should progress be restored?</label>
+  <select id="vaultMode" style="display:block;max-width:440px;width:100%;margin-bottom:13px">
+   <option value="merge">Combine: keep existing marks and add imported ones</option>
+   <option value="replace">Replace: use only recognized marks from the backup</option>
+  </select>
+  <button class="secondary" type="button" id="vaultApply" disabled>Confirm restore from preview</button>
+  <p id="vaultMessage" class="desc" role="status" aria-live="polite"></p>
+ </section>
+ <section class="section" aria-labelledby="deleteHeading">
+  <h2 id="deleteHeading">Delete local demo progress</h2>
+  <p class="desc">Removing this browser's REGEN quest marks cannot erase files you've downloaded, synced browser storage, or copies on other devices. Back up first if you want to keep your local learning markers.</p>
+  <button class="secondary" id="vaultErase" type="button">Erase REGEN progress from this browser</button>
+ </section>
+</section>
+
 <section id="quests" class="page" aria-label="Quest board">
- <div class="eyebrow">Quest Board / Exploratory library</div><h1 class="page-title">Your next <span class="accent">doable step.</span></h1><p class="desc">Explore 12 fictional example quests. All completion is private and self-reported in this demo. Real-world tasks require any stated permissions and safety checks.</p>
+ <div class="eyebrow">Quest Board / Exploratory library</div><h1 class="page-title">Your next <span class="accent">doable step.</span></h1><p class="desc">Explore 30 fictional example quests. All completion is private and self-reported in this demo. Real-world tasks require any stated permissions and safety checks.</p>
  <div class="toolbar" aria-label="Filter quests"><label>Quest area<select id="domainFilter"><option value="all">All areas</option></select></label><label>Time available<select id="timeFilter"><option value="all">Any length</option><option value="15">15 minutes or less</option><option value="30">30 minutes or less</option><option value="60">60 minutes or less</option></select></label><label>Participation mode<select id="settingFilter"><option value="all">All modes</option><option value="remote">From home or remote</option><option value="community">With a community</option></select></label><label>Completion<select id="doneFilter"><option value="all">All quests</option><option value="todo">Not completed</option><option value="done">Marked complete</option></select></label></div>
  <div class="section-top"><p id="resultCount" class="desc" aria-live="polite"></p><button id="resetProgress" class="linkbtn">Reset private demo progress</button></div><p class="desc">Want a suggested order? Open <button type="button" class="linkbtn" data-goto="journey">My pathway</button>. Quest preparation is optional.</p>
  <div id="questGrid" class="questgrid"></div>
@@ -82,11 +115,12 @@
  <div class="softpanel"><h3>Repair is proven through action.</h3><p>Good intentions don't erase harm. Independent review, affected-community input, remediation, and durable results matter more than a sponsorship or public-relations badge.</p></div>
 </section>
 
-<footer class="footer"><span>REGEN v0.4 · Concept prototype · Example content, not a deployed civic platform</span><span>Private progress remains in this browser only · <a href="../README.md" id="readmeLink">Read the foundation</a></span></footer>
+<footer class="footer"><span>REGEN v0.5 · Concept prototype · Example content, not a deployed civic platform</span><span>Private progress remains in this browser only · <a href="../README.md" id="readmeLink">Read the foundation</a></span></footer>
 </main>
 </div>
 <dialog id="questDialog" aria-labelledby="dialogTitle"><div class="dialog-inner"><div class="dialog-top"><span class="eyebrow">Quest detail / Example only</span><button class="close" id="dialogClose" aria-label="Close quest detail">×</button></div><div id="dialogContent"></div></div></dialog>
 <script src="quest-engine.js"></script>
+<script src="progress-vault.js"></script>
 <script>
 /* Embedded dataset is generated from data/quests.json: run python tests/build_prototype.py */
 const QUESTPACK = __QUEST_DATA__;
@@ -116,13 +150,21 @@ const BRIDGE=[
  ['Repair or escalate','Require remedy; use lawful accountability or alternatives when reform fails.'],
  ['Reassess and re-enter','Allow trust to grow through measured progress, not publicity or purchased praise.']
 ];
-const STORAGE_KEY='regen_v01_completed'; // Keep v0.1 demo markers without migrating sensitive data.
-let done=new Set();
-try {let a=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');if(Array.isArray(a))done=new Set(a.filter(x=>QUESTS.some(q=>q.id===x)));}catch(e){/* storage optional */}
+const VAULT=window.REGENProgress;
+const STORAGE_KEY=VAULT.STORE_KEY;
+const storage=typeof localStorage==='undefined'?{getItem(){throw Error('Storage unavailable')},setItem(){throw Error('Storage unavailable')},removeItem(){throw Error('Storage unavailable')}}:localStorage;
+const initial=VAULT.readLocal(storage,QUESTS);
+let done=initial.completed;
+let storageAvailable=initial.available;
 let currentQuest=null;
+let pendingBackup=null;
 const $=id=>document.getElementById(id);
 const h=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const save=()=>{try{localStorage.setItem(STORAGE_KEY,JSON.stringify([...done]))}catch(e){/* continue without persistence */}};
+const save=()=>{const result=VAULT.writeLocal(storage,done,QUESTS);storageAvailable=result.ok;updateStorageStatus(result.message);return result;};
+function updateStorageStatus(message){
+ const target=document.getElementById('vaultStorage');
+ if(target)target.textContent=message||(storageAvailable?'Available: marks are saved in this browser.':'Unavailable: marks remain in this tab only.');
+}
 const btnText=id=>done.has(id)?'✓ Marked complete':'View quest →';
 function nav(page){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===page));document.querySelectorAll('[data-nav]').forEach(x=>{const on=x.dataset.nav===page;x.classList.toggle('active',on);if(on)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')});window.scrollTo({top:0,behavior:'instant'})}
 document.querySelectorAll('[data-nav],[data-goto]').forEach(b=>b.addEventListener('click',()=>nav(b.dataset.nav||b.dataset.goto)));
@@ -159,26 +201,70 @@ function setupJourney(){
    document.querySelectorAll('[data-path-quest]').forEach(b=>b.addEventListener('click',()=>openQuest(b.dataset.pathQuest)));
  }
  ['pathDomain','pathSkill','pathTime','pathSetting'].forEach(id=>$(id).addEventListener('change',render));
- $('exportProgress').addEventListener('click',()=>{
-   const data=JSON.stringify(ENGINE.exportProgress(QUESTS,done),null,2)+"\n";
-   const blob=new Blob([data],{type:'application/json;charset=utf-8'});
-   const url=URL.createObjectURL(blob);
-   const a=document.createElement('a');a.href=url;a.download='regen-self-reported-progress.json';
-   document.body.appendChild(a);a.click();a.remove();
-   setTimeout(()=>URL.revokeObjectURL(url),1000);
- });
+ $('exportProgress').addEventListener('click',exportProgressFile);
  return render;
 }
 const renderJourney = setupJourney();
 function populateFilters(){const domains=[...new Set(QUESTS.map(q=>q.domain))].sort();$('domainFilter').innerHTML+=[...domains].map(x=>`<option value="${h(x)}">${h(x)}</option>`).join('')}
 function filtered(){let d=$('domainFilter').value,t=$('timeFilter').value,s=$('settingFilter').value,f=$('doneFilter').value;return QUESTS.filter(q=>(d==='all'||q.domain===d)&&(t==='all'||q.estimated_minutes<=Number(t))&&(s==='all'||(s==='remote'?['home','remote','flexible'].includes(q.setting):['community','flexible'].includes(q.setting)))&&(f==='all'||f===(done.has(q.id)?'done':'todo')))}
 function renderQuests(){const qs=filtered().sort((a,b)=>a.stage-b.stage||a.estimated_minutes-b.estimated_minutes);$('resultCount').textContent=`${qs.length} example ${qs.length===1?'quest':'quests'} available`;$('questGrid').innerHTML=qs.length?qs.map(q=>`<article class="quest"><div class="qt"><span class="labelbox">Scope ${q.stage}</span><span class="labelbox low">${h(q.kind)}</span>${done.has(q.id)?'<span class="labelbox done">Self-reported ✓</span>':''}</div><h3>${h(q.title)}</h3><p>${h(q.summary)}</p><div class="meta">◷ ${q.estimated_minutes} min · ${h(q.domain)} · ${h(q.setting)}</div><button class="secondary" data-quest="${h(q.id)}">${btnText(q.id)}</button></article>`).join(''):'<div class="empty">No example quests match these filters. Try a wider time window or a different area.</div>';document.querySelectorAll('[data-quest]').forEach(b=>b.addEventListener('click',()=>openQuest(b.dataset.quest)))}
-function updateStats(){$('statCatalog').textContent=QUESTS.length;$('statCompleted').textContent=done.size;renderSkills();const next=ENGINE.recommendations(QUESTS,done,{},1)[0];$('suggestTitle').textContent=done.size===QUESTS.length?'All example quests explored!':next?next.quest.title:'No next step ready';$('suggestDesc').textContent=done.size===QUESTS.length?'These are self-reported activity markers, not evidence of societal outcomes.':next?next.reason:'Visit My pathway to explore other examples or revisit a suggested preparation.';$('suggestOpen').textContent=next?'View recommended quest ↗':'Explore pathways ↗';$('suggestOpen').onclick=()=>next?openQuest(next.quest.id):nav('journey');renderQuests();renderJourney()}
+function updateStats(){$('statCatalog').textContent=QUESTS.length;$('statCompleted').textContent=done.size;$('vaultCount').textContent=done.size;renderSkills();const next=ENGINE.recommendations(QUESTS,done,{},1)[0];$('suggestTitle').textContent=done.size===QUESTS.length?'All example quests explored!':next?next.quest.title:'No next step ready';$('suggestDesc').textContent=done.size===QUESTS.length?'These are self-reported activity markers, not evidence of societal outcomes.':next?next.reason:'Visit My pathway to explore other examples or revisit a suggested preparation.';$('suggestOpen').textContent=next?'View recommended quest ↗':'Explore pathways ↗';$('suggestOpen').onclick=()=>next?openQuest(next.quest.id):nav('journey');renderQuests();renderJourney()}
 function openQuest(id){const q=QUESTS.find(x=>x.id===id);if(!q)return;currentQuest=q;$('dialogContent').innerHTML=`<h2 id="dialogTitle" style="margin:12px 0">${h(q.title)}</h2><p class="desc">${h(q.summary)}</p><p class="meta">Scope ${q.stage} · ${h(q.kind)} · ${q.estimated_minutes} min · ${h(q.domain)} · ${h(q.setting)}</p><div class="detail-box"><b>Intended result</b><p>${h(q.objective)}</p></div><div class="detail-box"><b>Suggested preparation (optional)</b><p>${h(ENGINE.assess(QUESTS,done).find(x=>x.quest.id===id).reason)}</p><p>These steps are guidance, never a prerequisite for opening this quest.</p></div><h3>Quest steps</h3><ol class="detail-list">${q.steps.map(t=>`<li>${h(t)}</li>`).join('')}</ol><div class="detail-box"><b>Access alternative</b><p>${h(q.accessibility_alternative)}</p><b>Consent & permissions</b><p>${h(q.consent_requirement)}</p><b>Safety boundary</b><p>${h(q.safety_notes)}</p></div><h3>Reflect</h3><p class="desc">${h(q.reflection_prompt)}</p><small>Completion is self-reported and saved only in this browser. It does not imply approval, verification, or demonstrated societal impact.</small><div class="dialog-actions"><button class="primary" id="dialogToggle">${done.has(id)?'Undo my completion':'Mark complete (self-report)'}</button><button class="secondary" id="dialogLeave">Close</button></div>`;$('dialogToggle').onclick=()=>{if(done.has(id))done.delete(id);else done.add(id);save();updateStats();openQuest(id)};$('dialogLeave').onclick=()=>closeQuest();if(!$('questDialog').open)$('questDialog').showModal()}
 function closeQuest(){$('questDialog').close();currentQuest=null}
 $('dialogClose').onclick=closeQuest;$('questDialog').addEventListener('click',e=>{if(e.target===$('questDialog'))closeQuest()});$('questDialog').addEventListener('close',()=>{currentQuest=null});
 ['domainFilter','timeFilter','settingFilter','doneFilter'].forEach(x=>$(x).addEventListener('change',renderQuests));
-$('resetProgress').addEventListener('click',()=>{if(confirm('Clear example quest progress stored in this browser?')){done.clear();save();updateStats()}});
+function exportProgressFile(){
+ const data=JSON.stringify(VAULT.createSnapshot(QUESTS,done,QUESTPACK.version),null,2)+"\n";
+ const blob=new Blob([data],{type:'application/json;charset=utf-8'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='regen-progress-backup-v2.json';document.body.appendChild(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function eraseProgress(){
+ if(!confirm('Erase all REGEN quest completion marks from this browser? Downloaded backup files will NOT be deleted.'))return;
+ const outcome=VAULT.eraseLocal(storage);
+ done.clear();
+ updateStats();
+ storageAvailable=outcome.ok;
+ updateStorageStatus(outcome.ok?outcome.message:'In-tab markers cleared. '+outcome.message);
+ $('vaultMessage').textContent=outcome.ok?'Local progress erased. Saved backup files elsewhere were not affected.':'In-tab progress cleared, but persistent browser storage deletion could not be confirmed.';
+}
+function setupVault(){
+ updateStorageStatus(initial.warning||'');
+ const status=$('vaultMessage'),preview=$('vaultPreview'),button=$('vaultApply');
+ $('vaultExport').addEventListener('click',exportProgressFile);
+ $('vaultErase').addEventListener('click',eraseProgress);
+ $('resetProgress').addEventListener('click',eraseProgress);
+ $('vaultFile').addEventListener('change',async event=>{
+  pendingBackup=null;button.disabled=true;preview.textContent='Reading the selected backup…';status.textContent='';
+  const file=event.target.files&&event.target.files[0];
+  if(!file){preview.textContent='No backup selected.';return;}
+  try{
+   if(file.size>VAULT.MAX_BYTES)throw Error('Backup must be smaller than 64 KB.');
+   const text=await file.text();
+   const p=VAULT.previewImport(text,QUESTS,done);
+   pendingBackup=p;
+   preview.textContent='Format v'+p.input_version+' · '+p.incoming_count+' IDs in file · '+p.recognized_count+' recognized · '+p.unknown_count+' no longer recognized · '+p.new_count+' new to this tab. Source catalog: '+p.source_catalog+'. This is self-report only, not proof of completed work.';
+   button.disabled=false;
+  }catch(error){preview.textContent='Cannot use this backup: '+error.message;}
+  event.target.value='';
+ });
+ $('vaultMode').addEventListener('change',()=>{status.textContent='Your choice will be confirmed before progress changes.';});
+ button.addEventListener('click',()=>{
+  if(!pendingBackup)return;
+  const mode=$('vaultMode').value;
+  const merged=VAULT.applyImport(pendingBackup,done,mode,QUESTS);
+  const summary=mode==='replace'?'REPLACE all current marks with '+merged.size+' recognized imported marks':'COMBINE your current marks with imported marks ('+merged.size+' total)';
+  if(!confirm(summary+'? This can change your local progress.'))return;
+  done=merged;
+  const result=save();
+  updateStats();
+  status.textContent='Restore applied to this tab. '+result.message+' Imported markers are self-reported only.';
+  pendingBackup=null;button.disabled=true;
+  preview.textContent='Restore finished. Choose a new file to preview another backup.';
+ });
+}
+setupVault();
 // The packaged standalone HTML has no neighbouring README; the original repo version can link to it.
 if(location.protocol==='file:' || !location.pathname.endsWith('/web/index.html'))$('readmeLink').style.display='none';
 renderStages();renderProtocol();populateFilters();updateStats();
